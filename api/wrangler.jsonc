@@ -1,0 +1,9 @@
+{
+  "name": "maison-angie-api",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "keep_vars": true,
+  "d1_databases": [
+    { "binding": "DB", "database_name": "maison-angie-db", "database_id": "6557d5a3-8973-4202-920c-a98b6bb585c5" }
+  ]
+}
