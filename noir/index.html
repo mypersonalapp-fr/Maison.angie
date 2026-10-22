@@ -181,7 +181,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <h2 class="h-m">Le geste, <em>en mouvement.</em></h2>
 <p class="txt" style="margin-top:28px">[Texte : quelques mots sur cette création, ses saveurs, son temps de préparation.]</p>
 </div>
-<video class="blur" autoplay muted loop playsinline preload="metadata" poster="../assets/coulisses-poster.jpg" src="../assets/coulisses.mp4" style="flex:0 1 380px;width:100%;max-width:380px;height:auto;display:block;background:#000000" aria-label="Vidéo : le geste en mouvement"></video>
+<div class="blur" style="position:relative;flex:0 1 380px;width:100%;max-width:380px"><video autoplay muted loop playsinline preload="metadata" poster="../assets/coulisses-poster.jpg" src="../assets/coulisses.mp4" style="width:100%;height:auto;display:block;background:#000000" aria-label="Vidéo : le geste en mouvement"></video><button type="button" id="soundBtn" aria-pressed="false" style="position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;border:0;padding:10px 14px;font:500 11px Karla,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer">Activer le son</button></div>
 </div>
 </section>
 
@@ -469,5 +469,5 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   demo('#devisForm', '#devisOk');
 })();
 </script>
-</body>
+<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script></body>
 </html>
