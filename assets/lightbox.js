@@ -7,8 +7,12 @@
     '.lb.on{display:flex}' +
     '.lb-stage{position:relative;width:100%;height:calc(100vh - 230px);min-height:300px;perspective:1500px;perspective-origin:50% 45%}' +
     '.lb-ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}' +
-    '.lb-it{position:absolute;left:0;top:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:opacity .9s ease,filter .9s ease;cursor:pointer;background:#2A2522}' +
-    '.lb-it img{width:100%;height:100%;object-fit:contain;display:block}' +
+    '.lb-it{position:absolute;left:0;top:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;cursor:pointer}' +
+    '.lb-f,.lb-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:filter .9s ease}' +
+    '.lb-f{background:#2A2522}.lb-f img{width:100%;height:100%;object-fit:contain;display:block}' +
+    '.lb-b{transform:rotateY(180deg);background:#E9E2DC;box-shadow:inset 0 0 0 1px rgba(31,27,26,.12)}' +
+    '.lb-clip{position:absolute;left:50%;top:-12px;width:16px;height:34px;margin-left:-8px;background:#B9A27A;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}' +
+    '.lb-clip.k{transform:rotateY(180deg)}' +
     '.lb-cap{margin-top:12px;text-align:center;line-height:1.5;padding:0 72px}' +
     '.lb-cap b{display:block;font:500 24px "Cormorant Garamond",serif}' +
     '.lb-cap span{font-size:13px;opacity:.75}' +
@@ -56,7 +60,7 @@
     var n = items.length, vw = window.innerWidth, vh = stage.clientHeight;
     var h = Math.min(vh * 0.92, 560), w = Math.min(h * 0.8, vw * 0.74);
     h = Math.min(h, w / 0.8);
-    var R = n > 2 ? (w / 2 + 14) / Math.tan(Math.PI / n) : 0;
+    var R = n > 2 ? Math.max((w / 2 + 14) / Math.tan(Math.PI / n), w * 0.9) : w * 0.9;
     thetaDeg = 360 / n;
     ring.style.width = ring.style.height = '0px';
     imgs.forEach(function (it, i) {
@@ -77,8 +81,8 @@
     var n = items.length;
     imgs.forEach(function (it, i) {
       var d = Math.min((i - idx + n) % n, (idx - i + n) % n);
-      it.style.opacity = d === 0 ? 1 : d === 1 ? 0.35 : 0.12;
-      it.style.filter = d === 0 ? 'none' : 'brightness(.6)';
+      var fl = d === 0 ? 'none' : 'brightness(.55)';
+      it.querySelector('.lb-f').style.filter = fl; it.querySelector('.lb-b').style.filter = fl;
       it.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
     });
     var c = items[idx];
@@ -100,7 +104,10 @@
     ring.textContent = ''; imgs = [];
     items.forEach(function (c, k) {
       var it = doc.createElement('div'); it.className = 'lb-it';
-      var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; it.appendChild(im);
+      var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; f.appendChild(im);
+      var bk = doc.createElement('div'); bk.className = 'lb-b';
+      var c1 = doc.createElement('div'); c1.className = 'lb-clip'; var c2 = doc.createElement('div'); c2.className = 'lb-clip k';
+      it.appendChild(bk); it.appendChild(f); it.appendChild(c1); it.appendChild(c2);
       it.addEventListener('click', function () {
         var n = items.length, diff = ((k - idx) % n + n) % n;
         if (diff === 1) go(1); else if (diff === n - 1) go(-1);
