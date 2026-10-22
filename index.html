@@ -26,6 +26,9 @@ a{color:var(--ink);text-decoration:none}
 img,video{max-width:100%}
 .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin:0 0 22px}
 .btn{display:inline-flex;align-items:center;gap:14px;background:var(--acc);color:#FDFCFB;padding:20px 32px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;border:0;cursor:pointer;font-family:'Karla',sans-serif}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.1}}
+.btn-o svg{animation:blink 1.2s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.btn-o svg{animation:none}}
 .btn-o{display:inline-flex;align-items:center;gap:12px;border:1.5px solid var(--acc);padding:14px 20px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;background:transparent;color:var(--acc);white-space:nowrap}
 .lnk{display:inline-flex;align-items:center;gap:16px;border:0;border-bottom:2px solid var(--acc);background:none;padding:0 0 12px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;font-family:'Karla',sans-serif;color:var(--ink)}
 .lnk svg.rot{transform:rotate(180deg)}
@@ -46,17 +49,18 @@ select.field{appearance:none;-webkit-appearance:none;background:url("data:image/
 .chip.on{background:var(--acc);border-color:var(--acc);color:#FDFCFB}
 .pay{border:1.5px solid var(--ink);padding:12px 22px;font-size:14px;letter-spacing:.18em;text-transform:uppercase}
 .h4{font-family:Karla,sans-serif;font-size:13px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;margin:0 0 10px}
+[data-page=infos] .txt{font-size:16px}
 .txt{margin:0;font-size:18px;line-height:1.8;color:var(--muted)}
-.hd{max-width:1200px;margin:0 auto;padding:10px 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
-.hlogo{height:88px;width:auto;display:block}
+.hd{max-width:1200px;margin:0 auto;padding:16px 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.hlogo{height:60px;width:auto;display:block;margin:0 auto;mix-blend-mode:multiply}
 header.site{position:sticky;top:0;z-index:15;background:#FDFCFB;border-bottom:1px solid var(--line)}
 .sec{max-width:1200px;margin:0 auto;padding:100px 32px 120px}
 .band{background:var(--soft);padding:110px 32px}
 .hero{background:var(--soft);padding:110px 32px 120px}
 .hero-in{max-width:1000px;margin:0 auto;text-align:center}
-.hero-top{margin:0 0 18px;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.6vw,38px);line-height:1.2}
-.hero-top em{color:var(--acc)}
-.h-xl{font-size:clamp(52px,9vw,112px);line-height:1}
+.hero-top{margin:0 0 18px;font-weight:700;font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.6vw,38px);line-height:1.2}
+.hero-top em{font-style:normal;color:var(--ink)}
+.h-xl{font-size:clamp(24px,8.2vw,92px);line-height:1.05;white-space:nowrap}
 .h-l{font-size:clamp(44px,6vw,76px);line-height:1.05}
 .h-m{font-size:clamp(38px,5vw,64px);line-height:1.05}
 .split{display:flex;flex-wrap:wrap;gap:64px;align-items:center}
@@ -85,9 +89,11 @@ header.site{position:sticky;top:0;z-index:15;background:#FDFCFB;border-bottom:1p
 .info{border-top:1.5px solid var(--ink);padding-top:24px}
 .info h3{font-size:34px;margin-bottom:16px}
 footer.site{max-width:1200px;margin:0 auto;padding:80px 32px 64px}
-footer.site .flogo{height:120px;width:auto;display:block}
+footer.site .flogo{height:64px;mix-blend-mode:multiply;width:auto;display:block}
 footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px}
-.social{display:flex;flex-wrap:wrap;gap:24px 36px}
+.social{display:flex;flex-wrap:nowrap;gap:14px 18px;justify-content:space-between}
+.social .lnk{font-size:10px;letter-spacing:.05em;gap:4px;padding-bottom:8px;white-space:nowrap}
+.social .lnk svg{width:10px;height:10px}
 .copy{margin:28px 0 0;font-size:14px;color:#5E5754}
 /* apparition douce au défilement */
 .js .blur,.js .reveal{opacity:0;transition:opacity 1s ease,filter 1s ease,transform 1s ease}
@@ -99,7 +105,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .js .stag .tile:nth-child(4){transition-delay:.36s}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 @media(max-width:700px){
- .hd{padding:8px 16px}.hlogo{height:66px}
+ .hd{padding:14px 16px}.hlogo{height:50px}
  .btn-o{padding:10px 12px;gap:6px;font-size:10px;letter-spacing:.1em}
  .mason{column-count:2;column-width:auto;column-gap:14px}
  .mason figure{margin-bottom:30px}.cap h3{font-size:22px}.cap p{font-size:13px}
@@ -288,7 +294,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <img class="flogo" src="assets/logo.png" alt="Maison Angie">
 <p class="tag">L'art de célébrer</p>
 <div class="social">
-<a class="lnk" href="#">Instagram <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+<a class="lnk" href="https://www.instagram.com/maison.angie?xtok=dGVnNjY4Z2o3bWdz" target="_blank" rel="noopener">Instagram <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 <a class="lnk" href="#">TikTok <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 <a class="lnk" href="#">Facebook <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 <a class="lnk" href="#">LinkedIn <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
