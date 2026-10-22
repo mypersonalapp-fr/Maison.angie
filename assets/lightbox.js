@@ -106,8 +106,7 @@
       var it = doc.createElement('div'); it.className = 'lb-it';
       var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; f.appendChild(im);
       var bk = doc.createElement('div'); bk.className = 'lb-b';
-      var c1 = doc.createElement('div'); c1.className = 'lb-clip'; var c2 = doc.createElement('div'); c2.className = 'lb-clip k';
-      it.appendChild(bk); it.appendChild(f); it.appendChild(c1); it.appendChild(c2);
+      it.appendChild(bk); it.appendChild(f);
       it.addEventListener('click', function () {
         var n = items.length, diff = ((k - idx) % n + n) % n;
         if (diff === 1) go(1); else if (diff === n - 1) go(-1);
