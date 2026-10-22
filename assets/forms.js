@@ -2,7 +2,7 @@
    Tant que ENDPOINT est vide, les formulaires restent en mode test (rien n'est transmis). */
 (function () {
   'use strict';
-  var ENDPOINT = '';
+  var ENDPOINT = 'https://maison-angie-api.ashleymubama.workers.dev';
   if (!ENDPOINT) return;
 
   var pj = document.getElementById('pj');
