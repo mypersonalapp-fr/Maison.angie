@@ -1,0 +1,3 @@
+Service de réception des demandes de Maison Angie (Cloudflare Worker + base D1 + e-mails Brevo).
+Réglages à faire dans Cloudflare : variables SENDER_EMAIL et NOTIFY_EMAIL, secret BREVO_API_KEY.
+La base de données DB est reliée par wrangler.jsonc.
