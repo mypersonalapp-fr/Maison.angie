@@ -41,7 +41,9 @@ async function sendMail(env, { to, subject, html, replyTo }) {
     headers: { 'api-key': env.BREVO_API_KEY, 'Content-Type': 'application/json', Accept: 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!r.ok) throw new Error('Brevo ' + r.status + ' ' + (await r.text()).slice(0, 300));
+  const txt = (await r.text()).slice(0, 300);
+  if (!r.ok) throw new Error('Brevo ' + r.status + ' ' + txt);
+  return 'Brevo ' + r.status + ' ' + txt;
 }
 
 const row = (label, value) => value ? `<tr><td style="padding:6px 14px 6px 0;color:#6b6460;vertical-align:top;white-space:nowrap">${esc(label)}</td><td style="padding:6px 0;color:#1f1b1a">${esc(value).replace(/\n/g, '<br>')}</td></tr>` : '';
@@ -116,20 +118,23 @@ export default {
     const id = res.meta && res.meta.last_row_id;
 
     let statut = 'Nouveau';
+    const journal = [];
     try {
       const a = adminMail(type, d);
-      await sendMail(env, { to: { email: env.NOTIFY_EMAIL }, subject: a.subject, html: a.html, replyTo: { email: d.email, name: d.nom } });
+      journal.push('Angie -> ' + env.NOTIFY_EMAIL + ' : ' + (await sendMail(env, { to: { email: env.NOTIFY_EMAIL }, subject: a.subject, html: a.html, replyTo: { email: d.email, name: d.nom } })));
     } catch (e) {
       console.error('Notification', e.message);
+      journal.push('Angie ECHEC : ' + e.message);
       statut = 'Notification non envoyée';
     }
     try {
       const c = clientMail(type, d);
-      await sendMail(env, { to: { email: d.email, name: d.nom }, subject: c.subject, html: c.html, replyTo: { email: env.NOTIFY_EMAIL } });
+      journal.push('Client -> ' + d.email + ' : ' + (await sendMail(env, { to: { email: d.email, name: d.nom }, subject: c.subject, html: c.html, replyTo: { email: env.NOTIFY_EMAIL } })));
     } catch (e) {
       console.error('Confirmation', e.message);
+      journal.push('Client ECHEC : ' + e.message);
     }
-    if (statut !== 'Nouveau' && id) await env.DB.prepare('UPDATE demandes SET statut = ? WHERE id = ?').bind(statut, id).run();
+    if (id) await env.DB.prepare('UPDATE demandes SET statut = ?, journal = ? WHERE id = ?').bind(statut, journal.join(' | ').slice(0, 1000), id).run();
 
     return json({ ok: true }, 200, cors);
   },
