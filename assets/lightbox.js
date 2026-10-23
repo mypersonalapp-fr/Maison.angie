@@ -10,7 +10,7 @@
     '.lb-it{position:absolute;left:0;top:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;cursor:pointer}' +
     '.lb-f,.lb-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:filter .9s ease}' +
     '.lb-f{background:#FFFFFF}.lb-f img{width:100%;height:100%;object-fit:contain;display:block}' +
-    '.lb-b{transform:rotateY(180deg);background:#F2EEEB;box-shadow:inset 0 0 0 1px rgba(31,27,26,.12)}' +
+    '.lb-b{transform:rotateY(180deg);background:#FFFFFF}' +
     '.lb-clip{position:absolute;left:50%;top:-12px;width:16px;height:34px;margin-left:-8px;background:#B9A27A;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}' +
     '.lb-clip.k{transform:rotateY(180deg)}' +
     '.lb-cap{margin-top:12px;text-align:center;line-height:1.5;padding:0 72px}' +
@@ -105,7 +105,7 @@
     items.forEach(function (c, k) {
       var it = doc.createElement('div'); it.className = 'lb-it';
       var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; f.appendChild(im);
-      var bk = doc.createElement('div'); bk.className = 'lb-b';
+      var bk = doc.createElement('div'); bk.className = 'lb-b'; var im2 = doc.createElement('img'); im2.src = c.src; im2.alt = ''; im2.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block'; bk.appendChild(im2);
       it.appendChild(bk); it.appendChild(f);
       it.addEventListener('click', function () {
         var n = items.length, diff = ((k - idx) % n + n) % n;
