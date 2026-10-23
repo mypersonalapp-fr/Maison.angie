@@ -9,7 +9,7 @@
     '.lb-ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}' +
     '.lb-it{position:absolute;left:0;top:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;cursor:pointer}' +
     '.lb-f,.lb-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:filter .9s ease}' +
-    '.lb-f{background:#FFFFFF}.lb-f img{width:100%;height:100%;object-fit:contain;display:block}' +
+    '.lb-f{background:#FFFFFF}.lb-f img{width:100%;height:100%;object-fit:cover;display:block}' +
     '.lb-b{transform:rotateY(180deg);background:#FFFFFF}' +
     '.lb-clip{position:absolute;left:50%;top:-12px;width:16px;height:34px;margin-left:-8px;background:#B9A27A;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}' +
     '.lb-clip.k{transform:rotateY(180deg)}' +
@@ -64,8 +64,11 @@
     thetaDeg = 360 / n;
     ring.style.width = ring.style.height = '0px';
     imgs.forEach(function (it, i) {
-      it.style.width = w + 'px'; it.style.height = h + 'px';
-      it.style.marginLeft = (-w / 2) + 'px'; it.style.marginTop = (-h / 2) + 'px';
+      var im = it.querySelector('.lb-f img'), ar = (im && im.naturalWidth) ? im.naturalHeight / im.naturalWidth : 1.25;
+      var cw = w, ch = w * ar;
+      if (ch > h) { ch = h; cw = h / ar; }
+      it.style.width = cw + 'px'; it.style.height = ch + 'px';
+      it.style.marginLeft = (-cw / 2) + 'px'; it.style.marginTop = (-ch / 2) + 'px';
       it.style.transform = 'rotateY(' + (i * thetaDeg) + 'deg) translateZ(' + R + 'px)';
     });
     ring.dataset.r = R;
@@ -104,8 +107,8 @@
     ring.textContent = ''; imgs = [];
     items.forEach(function (c, k) {
       var it = doc.createElement('div'); it.className = 'lb-it';
-      var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; f.appendChild(im);
-      var bk = doc.createElement('div'); bk.className = 'lb-b'; var im2 = doc.createElement('img'); im2.src = c.src; im2.alt = ''; im2.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block'; bk.appendChild(im2);
+      var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; im.addEventListener('load', function () { if (box.classList.contains('on')) layout(); }); f.appendChild(im);
+      var bk = doc.createElement('div'); bk.className = 'lb-b'; var im2 = doc.createElement('img'); im2.src = c.src; im2.alt = ''; im2.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; bk.appendChild(im2);
       it.appendChild(bk); it.appendChild(f);
       it.addEventListener('click', function () {
         var n = items.length, diff = ((k - idx) % n + n) % n;
