@@ -127,9 +127,9 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 @keyframes rd-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hero.rd-hero{position:relative;height:780px;padding:0;background:#F2EEEB;overflow:hidden;touch-action:pan-y}
-.rd-s{position:absolute;inset:0;clip-path:inset(0 0 0 100%);visibility:hidden;transition:clip-path 1.1s cubic-bezier(.65,0,.35,1),visibility 0s 1.1s}
+.rd-s{position:absolute;inset:0;clip-path:inset(0 0 0 100%);visibility:hidden;transition:clip-path .8s cubic-bezier(.65,0,.35,1),visibility 0s .8s}
 .rd-s.hl{clip-path:inset(0 100% 0 0)}
-.rd-s.on{clip-path:inset(0);visibility:visible;transition:clip-path 1.1s cubic-bezier(.65,0,.35,1),visibility 0s}
+.rd-s.on{clip-path:inset(0);visibility:visible;transition:clip-path .8s cubic-bezier(.65,0,.35,1),visibility 0s}
 .rd-in{max-width:1184px;margin:0 auto;height:100%;box-sizing:border-box;padding:56px 32px 130px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px}
 .rd-tx{flex:1 1 360px;min-width:0}
 .rd-big{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(120px,16vw,220px);line-height:.85;color:transparent;-webkit-text-stroke:1px #8A6D2F}
@@ -147,7 +147,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .rd-seg span{display:block;width:100%;height:2px;background:rgba(31,27,26,.2);overflow:hidden}
 .rd-seg i{display:block;height:100%;background:#8A6D2F;transform-origin:left;transform:scaleX(0)}
 .rd-seg.done i{transform:scaleX(1)}
-.rd-seg.on i{animation:rd-fill 5.5s linear both}
+.rd-seg.on i{animation:rd-fill 4s linear both}
 .rd-hero.paused .rd-seg.on i{animation-play-state:paused}
 .rd-wall{display:flex;gap:10px;height:560px}
 .rd-pn{position:relative;flex:1;overflow:hidden;background:#E8E0D9;transition:flex .8s cubic-bezier(.45,.05,.25,1);min-width:0;display:block}
@@ -577,7 +577,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 (function(){
   var hero=document.getElementById('rdHero');if(!hero)return;
   var sl=[].slice.call(hero.querySelectorAll('.rd-s')),sg=[].slice.call(hero.querySelectorAll('.rd-seg')),n=sl.length,idx=0,el=0,paused=false;
-  var DUR=5500,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DUR=4000,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   sl.forEach(function(s){s.querySelector('.rd-in').style.background=s.querySelector('.rd-in').getAttribute('data-bg')});
   function mark(){sg.forEach(function(g,i){g.classList.remove('on','done');if(i<idx)g.classList.add('done')});void hero.offsetWidth;sg[idx].classList.add('on')}
   function show(i,dir){
