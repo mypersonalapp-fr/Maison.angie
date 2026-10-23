@@ -121,10 +121,11 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 }
 
 /* ===== Édition « L'Arche » ===== */
+.eyebrow{white-space:nowrap}
 .hero{padding:72px 32px 88px;overflow:hidden}
 .ar{max-width:1184px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:40px 56px;text-align:left}
 .ar-l{flex:1 1 380px;min-width:0}
-.ar-h{margin:14px 0 0;font-style:italic;font-weight:700;font-size:clamp(44px,6vw,88px);line-height:1}
+.ar-h{margin:14px 0 0;font-style:italic;font-weight:700;font-size:clamp(26px,3.5vw,46px);line-height:1.05;white-space:nowrap}
 .ar-h em{color:#8A6D2F}
 .ar-idx{max-width:420px;border-top:1px solid #D9D0C8;margin-top:30px}
 .ar-i{display:flex;align-items:baseline;gap:18px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #D9D0C8;padding:14px 0;cursor:pointer;color:var(--ink);font-family:inherit}
@@ -150,6 +151,7 @@ a.tile:hover .ar-arch img{transform:scale(1.05)}
 .ar-grid .tile h3{padding-top:16px}
 .mason figure img{border-radius:999px 999px 10px 10px}
 @media(max-width:700px){
+ .ar-h{font-size:clamp(20px,7vw,40px)}.eyebrow{letter-spacing:.16em;font-size:min(11px,3.1vw)}
  .hero{padding:44px 20px 56px}
  .ar{gap:20px}
  .ar-l{display:contents}
@@ -196,7 +198,7 @@ a.tile:hover .ar-arch img{transform:scale(1.05)}
 <div class="ar">
 <div class="ar-l">
 <p class="eyebrow" style="margin:0">Maison Angie vous présente</p>
-<h1 class="h-xl ar-h">Sa Collection<br><em>Signature</em></h1>
+<h1 class="h-xl ar-h">Sa Collection <em>Signature</em></h1>
 <p style="margin:20px 0 0;max-width:420px;font-size:19px;line-height:1.6;font-weight:500">[Texte en gras : votre phrase d'accroche]</p>
 <p class="txt" style="margin-top:12px;max-width:420px">[Texte : ce qui rend vos gâteaux uniques.]</p>
 <div class="ar-idx" id="arIdx"></div>
