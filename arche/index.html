@@ -125,7 +125,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .hero{padding:72px 32px 88px;overflow:hidden}
 .ar{max-width:1184px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:40px 56px;text-align:left}
 .ar-l{flex:1 1 380px;min-width:0}
-.ar-top{max-width:1184px;margin:0 auto 8px}
+.ar-top{max-width:1000px;margin:0 auto 40px;text-align:center}
 .ar-h{margin:0;font-style:italic;font-weight:700;font-size:min(3.9vw,54px);line-height:1.1;white-space:nowrap}
 .ar-h .pre{font-style:normal;font-weight:400}
 .ar-h em{color:#8A6D2F}
@@ -153,7 +153,7 @@ a.tile:hover .ar-arch img{transform:scale(1.05)}
 .ar-grid .tile h3{padding-top:16px}
 .mason figure img{border-radius:999px 999px 10px 10px}
 @media(max-width:700px){
- .ar-h{font-size:3.9vw}.ar-top{margin-bottom:28px}
+ .ar-h{font-size:3.9vw}.ar-top{margin-bottom:24px}
  .hero{padding:44px 20px 56px}
  .ar{gap:20px}
  .ar-l{display:contents}
@@ -197,7 +197,7 @@ a.tile:hover .ar-arch img{transform:scale(1.05)}
 <!-- ACCUEIL -->
 <div data-page="accueil">
 <section class="hero">
-<div class="ar-top"><h1 class="h-xl ar-h"><span class="pre">Maison Angie vous présente</span> Sa Collection <em>Signature</em></h1></div>
+<div class="ar-top"><p class="hero-top">Maison Angie vous présente</p><h1 class="h-xl">Sa Collection <em>Signature</em></h1></div>
 <div class="ar">
 <div class="ar-l">
 <p style="margin:20px 0 0;max-width:420px;font-size:19px;line-height:1.6;font-weight:500">[Texte en gras : votre phrase d'accroche]</p>
@@ -415,7 +415,7 @@ a.tile:hover .ar-arch img{transform:scale(1.05)}
       CAT.filter(function (c) { return current === 'tous' || c.cat === current; }).forEach(function (c) {
         var f = el('figure', 'reveal');
         if (c.img) {
-          var im = el('img'); im.src = c.img; im.alt = c.nom; im.loading = 'lazy'; f.appendChild(im);
+          var im = el('img'); im.src = c.img; im.alt = c.nom; f.appendChild(im);
         } else {
           var ph = el('div', 'ph', 'Photo à envoyer'); ph.style.aspectRatio = '4/5'; f.appendChild(ph);
         }
