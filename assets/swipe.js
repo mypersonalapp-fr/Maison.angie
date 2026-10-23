@@ -4,7 +4,7 @@
   var d = document, x0 = 0, y0 = 0, t0 = 0, ok = false;
   var st = d.createElement('style'); st.textContent = 'html,body{overscroll-behavior-x:none}'; d.head.appendChild(st);
   function blocked(t) {
-    return !t || !t.closest || t.closest('input,textarea,select,video,.lb,[role=tab],.tabs,.ar-stage');
+    return !t || !t.closest || t.closest('input,textarea,select,video,.lb,[role=tab],.tabs,.ar-stage,.rd-hero,.pl-wrap');
   }
   d.addEventListener('touchstart', function (e) {
     if (e.touches.length !== 1) { ok = false; return; }

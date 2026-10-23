@@ -121,24 +121,34 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 }
 
 /* ===== Édition « Le Rideau » ===== */
-@keyframes rd-wipe{0%{clip-path:inset(0 0 0 100%)}6%{clip-path:inset(0 0 0 0)}20%{clip-path:inset(0 0 0 0)}26%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 100%)}}
-@keyframes rd-txt{0%,2%{opacity:0;transform:translateY(34px)}9%{opacity:1;transform:none}19%{opacity:1;transform:none}23%{opacity:0;transform:translateY(-18px)}100%{opacity:0}}
-@keyframes rd-kb{0%{transform:scale(1.14)}26%{transform:scale(1)}100%{transform:scale(1)}}
-@keyframes rd-num{0%,2%{transform:translateX(-40px);opacity:0}10%{transform:none;opacity:1}19%{opacity:1}24%{opacity:0}100%{opacity:0}}
-@keyframes rd-fill{0%{opacity:1;transform:scaleX(0)}20%{opacity:1;transform:scaleX(1)}24%{opacity:0;transform:scaleX(1)}24.1%{opacity:0;transform:scaleX(0)}100%{opacity:0;transform:scaleX(0)}}
+@keyframes rd-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes rd-num{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes rd-kb{from{transform:scale(1.14)}to{transform:scale(1)}}
+@keyframes rd-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hero.rd-hero{position:relative;height:780px;padding:0;background:#F2EEEB;overflow:hidden}
-.rd-hero:hover .rd-s,.rd-hero:hover .rd-s *,.rd-hero:hover .rd-f{animation-play-state:paused}
-.rd-s{position:absolute;inset:0;animation:rd-wipe 25s cubic-bezier(.65,0,.35,1) infinite both;animation-delay:var(--dl)}
-.rd-in{max-width:1184px;margin:0 auto;height:100%;box-sizing:border-box;padding:56px 32px 96px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px}
+.hero.rd-hero{position:relative;height:780px;padding:0;background:#F2EEEB;overflow:hidden;touch-action:pan-y}
+.rd-s{position:absolute;inset:0;clip-path:inset(0 0 0 100%);visibility:hidden;transition:clip-path 1.1s cubic-bezier(.65,0,.35,1),visibility 0s 1.1s}
+.rd-s.hl{clip-path:inset(0 100% 0 0)}
+.rd-s.on{clip-path:inset(0);visibility:visible;transition:clip-path 1.1s cubic-bezier(.65,0,.35,1),visibility 0s}
+.rd-in{max-width:1184px;margin:0 auto;height:100%;box-sizing:border-box;padding:56px 32px 130px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px}
 .rd-tx{flex:1 1 360px;min-width:0}
-.rd-big{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(120px,16vw,220px);line-height:.85;color:transparent;-webkit-text-stroke:1px #8A6D2F;animation:rd-num 25s ease infinite both;animation-delay:var(--dl)}
-.rd-t{animation:rd-txt 25s ease infinite both;animation-delay:var(--dl)}
+.rd-big{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(120px,16vw,220px);line-height:.85;color:transparent;-webkit-text-stroke:1px #8A6D2F}
 .rd-ph{flex:0 1 420px;height:100%;max-height:600px;aspect-ratio:7/10;border-radius:999px 999px 14px 14px;overflow:hidden;background:#E8E0D9;box-shadow:0 0 0 8px #FDFCFB}
-.rd-ph img{width:100%;height:100%;object-fit:cover;display:block;animation:rd-kb 25s ease-out infinite both;animation-delay:var(--dl)}
-.rd-bar{position:absolute;left:0;right:0;bottom:36px;z-index:20;display:flex;gap:10px;max-width:1184px;margin:0 auto;padding:0 32px;box-sizing:border-box;pointer-events:none}
-.rd-seg{flex:1;height:2px;background:rgba(31,27,26,.18);overflow:hidden}
-.rd-f{height:100%;background:#8A6D2F;transform-origin:left;animation:rd-fill 25s linear infinite both;animation-delay:var(--dl)}
+.rd-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.rd-s.on .rd-t{animation:rd-in .9s ease both}
+.rd-s.on .rd-t:nth-child(1){animation-delay:.35s}.rd-s.on .rd-t:nth-child(2){animation-delay:.5s}.rd-s.on .rd-t:nth-child(4){animation-delay:.75s}.rd-s.on .rd-t:nth-child(5){animation-delay:.9s}.rd-s.on .rd-t:nth-child(6){animation-delay:1.05s}
+.rd-s.on .rd-big{animation:rd-num .9s ease .55s both}
+.rd-s.on .rd-ph img{animation:rd-kb 6s ease-out both}
+.rd-ctl{position:absolute;left:0;right:0;bottom:62px;max-width:1184px;margin:0 auto;padding:0 32px;box-sizing:border-box;display:flex;gap:14px;z-index:25;pointer-events:none}
+.rd-ctl button{pointer-events:auto;width:54px;height:54px;border-radius:50%;border:1px solid var(--ink);background:rgba(253,252,251,.6);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;color:var(--ink)}
+.rd-ctl button:hover{background:var(--ink);color:#FDFCFB}
+.rd-bar{position:absolute;left:0;right:0;bottom:14px;z-index:26;display:flex;gap:10px;max-width:1184px;margin:0 auto;padding:0 32px;box-sizing:border-box}
+.rd-seg{flex:1;height:30px;background:none;border:0;padding:0;cursor:pointer;display:flex;align-items:center}
+.rd-seg span{display:block;width:100%;height:2px;background:rgba(31,27,26,.2);overflow:hidden}
+.rd-seg i{display:block;height:100%;background:#8A6D2F;transform-origin:left;transform:scaleX(0)}
+.rd-seg.done i{transform:scaleX(1)}
+.rd-seg.on i{animation:rd-fill 5.5s linear both}
+.rd-hero.paused .rd-seg.on i{animation-play-state:paused}
 .rd-wall{display:flex;gap:10px;height:560px}
 .rd-pn{position:relative;flex:1;overflow:hidden;background:#E8E0D9;transition:flex .8s cubic-bezier(.45,.05,.25,1);min-width:0;display:block}
 .rd-pn:hover,.rd-pn:focus-visible{flex:5}
@@ -149,13 +159,14 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .rd-cap{position:absolute;left:28px;right:28px;bottom:26px;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.5);opacity:0;transform:translateY(16px);transition:opacity .5s ease .25s,transform .6s ease .25s}
 .rd-pn:hover .rd-cap,.rd-pn:focus-visible .rd-cap{opacity:1;transform:none}
 .mason figure img{box-shadow:0 0 0 8px #FDFCFB,0 0 0 9px #B8975A;margin:9px 0 0}
-@media(prefers-reduced-motion:reduce){.rd-s,.rd-big,.rd-t,.rd-ph img,.rd-f{animation:none}.rd-s{clip-path:none}.rd-s:not(:first-child){display:none}}
+@media(prefers-reduced-motion:reduce){.rd-s,.rd-s.on{transition:none}.rd-s.on .rd-t,.rd-s.on .rd-big,.rd-s.on .rd-ph img,.rd-seg.on i{animation:none}.rd-seg.on i{transform:scaleX(1)}}
 @media(max-width:700px){
- .hero.rd-hero{height:880px}
- .rd-in{padding:28px 20px 80px;flex-direction:column;flex-wrap:nowrap;justify-content:center}
- .rd-ph{flex:0 0 auto;width:min(280px,76vw);height:auto;max-height:none}
+ .hero.rd-hero{height:920px}
+ .rd-in{padding:28px 20px 150px;flex-direction:column;flex-wrap:nowrap;justify-content:center}
  .rd-tx{flex:0 0 auto;width:100%}
+ .rd-ph{flex:0 0 auto;width:min(280px,76vw);height:auto;max-height:none}
  .rd-big{font-size:96px}
+ .rd-ctl{justify-content:center;bottom:58px}
  .rd-bar{padding:0 20px}
  .rd-wall{flex-direction:column;height:700px}
  .rd-v{writing-mode:horizontal-tb;transform:none;top:14px;font-size:22px}
@@ -191,9 +202,9 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 
 <!-- ACCUEIL -->
 <div data-page="accueil">
-<section class="hero rd-hero" aria-label="Les gâteaux de la collection, en défilement automatique">
+<section class="hero rd-hero" id="rdHero" aria-label="Les gâteaux de la collection : défilement automatique, flèches ou balayage pour changer">
 <h1 class="sr">Maison Angie vous présente Sa Collection Signature</h1>
-<div class="rd-s" style="--dl:0s;background:#F2EEEB"><div class="rd-in"><div class="rd-tx">
+<div class="rd-s on" data-cat="layer" aria-label="Layer cake"><div class="rd-in" data-bg="#F2EEEB"><div class="rd-tx">
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);line-height:1.2">Maison Angie vous présente</div>
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(25px,4vw,56px);line-height:1.05;white-space:nowrap">Sa Collection <em style="color:#8A6D2F">Signature</em></div>
 <div class="rd-big">01</div>
@@ -201,7 +212,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="rd-t" style="font-size:14px;color:#4A4340;margin-top:8px">[Légende : saveurs, finition]</div>
 <div class="rd-t" style="margin-top:26px"><a class="btn-o" href="#collection/layer">Voir la catégorie <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </div><div class="rd-ph"><img src="../assets/layer-fraises.jpg" alt="Layer cake"></div></div></div>
-<div class="rd-s" style="--dl:5s;background:#EEE6E0"><div class="rd-in"><div class="rd-tx">
+<div class="rd-s" data-cat="enfants" aria-label="Anniversaires"><div class="rd-in" data-bg="#EEE6E0"><div class="rd-tx">
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);line-height:1.2">Maison Angie vous présente</div>
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(25px,4vw,56px);line-height:1.05;white-space:nowrap">Sa Collection <em style="color:#8A6D2F">Signature</em></div>
 <div class="rd-big">02</div>
@@ -209,7 +220,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="rd-t" style="font-size:14px;color:#4A4340;margin-top:8px">[Légende : saveurs, finition]</div>
 <div class="rd-t" style="margin-top:26px"><a class="btn-o" href="#collection/enfants">Voir la catégorie <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </div><div class="rd-ph"><img src="../assets/anniversaire.jpg" alt="Anniversaires"></div></div></div>
-<div class="rd-s" style="--dl:10s;background:#F3EBE8"><div class="rd-in"><div class="rd-tx">
+<div class="rd-s" data-cat="cupcakes" aria-label="Cupcakes"><div class="rd-in" data-bg="#F3EBE8"><div class="rd-tx">
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);line-height:1.2">Maison Angie vous présente</div>
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(25px,4vw,56px);line-height:1.05;white-space:nowrap">Sa Collection <em style="color:#8A6D2F">Signature</em></div>
 <div class="rd-big">03</div>
@@ -217,7 +228,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="rd-t" style="font-size:14px;color:#4A4340;margin-top:8px">[Légende : saveurs, finition]</div>
 <div class="rd-t" style="margin-top:26px"><a class="btn-o" href="#collection/cupcakes">Voir la catégorie <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </div><div class="rd-ph"><img src="../assets/cupcakes.jpg" alt="Cupcakes"></div></div></div>
-<div class="rd-s" style="--dl:15s;background:#EDE9E4"><div class="rd-in"><div class="rd-tx">
+<div class="rd-s" data-cat="gender" aria-label="Gender reveal"><div class="rd-in" data-bg="#EDE9E4"><div class="rd-tx">
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);line-height:1.2">Maison Angie vous présente</div>
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(25px,4vw,56px);line-height:1.05;white-space:nowrap">Sa Collection <em style="color:#8A6D2F">Signature</em></div>
 <div class="rd-big">04</div>
@@ -225,7 +236,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="rd-t" style="font-size:14px;color:#4A4340;margin-top:8px">[Légende : saveurs, finition]</div>
 <div class="rd-t" style="margin-top:26px"><a class="btn-o" href="#collection/gender">Voir la catégorie <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </div><div class="rd-ph"><img src="../assets/gender-reveal.jpg" alt="Gender reveal"></div></div></div>
-<div class="rd-s" style="--dl:20s;background:#F1EAE3"><div class="rd-in"><div class="rd-tx">
+<div class="rd-s" data-cat="layer" aria-label="Layer cake chocolat et Oreo"><div class="rd-in" data-bg="#F1EAE3"><div class="rd-tx">
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);line-height:1.2">Maison Angie vous présente</div>
 <div class="rd-t" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:clamp(25px,4vw,56px);line-height:1.05;white-space:nowrap">Sa Collection <em style="color:#8A6D2F">Signature</em></div>
 <div class="rd-big">05</div>
@@ -233,7 +244,8 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="rd-t" style="font-size:14px;color:#4A4340;margin-top:8px">[Légende : saveurs, finition]</div>
 <div class="rd-t" style="margin-top:26px"><a class="btn-o" href="#collection/layer">Voir la catégorie <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </div><div class="rd-ph"><img src="../assets/layer-oreo.jpg" alt="Layer cake chocolat et Oreo"></div></div></div>
-<div class="rd-bar" aria-hidden="true"><div class="rd-seg"><div class="rd-f" style="--dl:0s"></div></div><div class="rd-seg"><div class="rd-f" style="--dl:5s"></div></div><div class="rd-seg"><div class="rd-f" style="--dl:10s"></div></div><div class="rd-seg"><div class="rd-f" style="--dl:15s"></div></div><div class="rd-seg"><div class="rd-f" style="--dl:20s"></div></div></div>
+<div class="rd-ctl"><button type="button" id="rdPrev" aria-label="Gâteau précédent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="rdNext" aria-label="Gâteau suivant"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+<div class="rd-bar" id="rdBar"><button type="button" class="rd-seg on" aria-label="Voir Layer cake"><span><i></i></span></button><button type="button" class="rd-seg" aria-label="Voir Anniversaires"><span><i></i></span></button><button type="button" class="rd-seg" aria-label="Voir Cupcakes"><span><i></i></span></button><button type="button" class="rd-seg" aria-label="Voir Gender reveal"><span><i></i></span></button><button type="button" class="rd-seg" aria-label="Voir Layer cake chocolat et Oreo"><span><i></i></span></button></div>
 </section>
 
 <section class="sec">
@@ -561,5 +573,34 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   demo('#devisForm', '#devisOk');
 })();
 </script>
-<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script src="../assets/fetes.js?v=2"></script><script src="../assets/vague.js"></script><script src="../assets/forms.js"></script><script src="../assets/lightbox.js?v=8"></script><script src="../assets/swipe.js?v=2"></script></body>
+<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script>/* Le Rideau : diaporama à rideau, automatique + flèches + balayage + barre cliquable */
+(function(){
+  var hero=document.getElementById('rdHero');if(!hero)return;
+  var sl=[].slice.call(hero.querySelectorAll('.rd-s')),sg=[].slice.call(hero.querySelectorAll('.rd-seg')),n=sl.length,idx=0,el=0,paused=false;
+  var DUR=5500,reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  sl.forEach(function(s){s.querySelector('.rd-in').style.background=s.querySelector('.rd-in').getAttribute('data-bg')});
+  function mark(){sg.forEach(function(g,i){g.classList.remove('on','done');if(i<idx)g.classList.add('done')});void hero.offsetWidth;sg[idx].classList.add('on')}
+  function show(i,dir){
+    i=(i+n)%n;if(i===idx)return;
+    var cur=sl[idx],nx=sl[i];
+    nx.style.transition='none';nx.classList.remove('on');nx.classList.toggle('hl',dir<0);void nx.offsetWidth;nx.style.transition='';
+    cur.classList.remove('on');cur.classList.toggle('hl',dir>0);
+    nx.classList.remove('hl');nx.classList.add('on');
+    idx=i;el=0;mark();
+  }
+  function go(d){show(idx+d,d)}
+  document.getElementById('rdPrev').addEventListener('click',function(){go(-1)});
+  document.getElementById('rdNext').addEventListener('click',function(){go(1)});
+  sg.forEach(function(g,i){g.addEventListener('click',function(){if(i!==idx)show(i,i>idx?1:-1)})});
+  var x0=null,y0=0;
+  hero.addEventListener('touchstart',function(e){if(e.touches.length===1){x0=e.touches[0].clientX;y0=e.touches[0].clientY}else x0=null;paused=true;hero.classList.add('paused');e.stopPropagation()},{passive:true});
+  hero.addEventListener('touchend',function(e){paused=false;hero.classList.remove('paused');if(x0==null)return;var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;e.stopPropagation();if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))go(dx<0?1:-1)},{passive:true});
+  hero.addEventListener('mouseenter',function(){paused=true;hero.classList.add('paused')});
+  hero.addEventListener('mouseleave',function(){paused=false;hero.classList.remove('paused')});
+  document.addEventListener('keydown',function(e){var r=hero.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight||/INPUT|TEXTAREA|SELECT/.test((document.activeElement||{}).tagName||''))return;if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1)});
+  if(!reduce)setInterval(function(){if(paused||document.hidden)return;el+=100;if(el>=DUR)go(1)},100);
+  mark();
+})();
+</script>
+<script src="../assets/fetes.js?v=2"></script><script src="../assets/vague.js"></script><script src="../assets/forms.js"></script><script src="../assets/lightbox.js?v=8"></script><script src="../assets/swipe.js?v=3"></script></body>
 </html>

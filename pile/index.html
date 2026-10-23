@@ -550,10 +550,11 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   cards.forEach(function(c){c.addEventListener('click',adv)});
   document.getElementById('plNext').addEventListener('click',adv);
   var w=document.getElementById('plWrap');
+  var sx=null;w.addEventListener('touchstart',function(e){sx=e.touches.length===1?e.touches[0].clientX:null;hov=true},{passive:true});w.addEventListener('touchend',function(e){hov=false;if(sx==null)return;var d=e.changedTouches[0].clientX-sx;sx=null;if(Math.abs(d)>40)adv()},{passive:true});
   w.addEventListener('mouseenter',function(){hov=true});w.addEventListener('mouseleave',function(){hov=false});
   if(!reduce)setInterval(function(){if(!hov&&!document.hidden)adv()},4200);
   draw(false);
 })();
 </script>
-<script src="../assets/fetes.js?v=2"></script><script src="../assets/vague.js"></script><script src="../assets/forms.js"></script><script src="../assets/lightbox.js?v=8"></script><script src="../assets/swipe.js?v=2"></script></body>
+<script src="../assets/fetes.js?v=2"></script><script src="../assets/vague.js"></script><script src="../assets/forms.js"></script><script src="../assets/lightbox.js?v=8"></script><script src="../assets/swipe.js?v=3"></script></body>
 </html>
