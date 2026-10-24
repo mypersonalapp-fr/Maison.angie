@@ -10,7 +10,7 @@
   function paques(d){var e=paquesDate(d.getFullYear()),t=new Date(d.getFullYear(),d.getMonth(),d.getDate());
     var diff=Math.round((e-t)/864e5);return diff<=14&&diff>=-1}
   var q=new URLSearchParams(location.search),p=q.get('fete'),preview=p==='noel'||p==='paques';
-  var theme=p==='paques'?'paques':p==='noel'?'noel':(noel(new Date())?'noel':(paques(new Date())?'paques':null));
+  var theme=window.MA_FORCE||(p==='paques'?'paques':p==='noel'?'noel':(noel(new Date())?'noel':(paques(new Date())?'paques':null)));
   var on=p==='off'?false:!!theme;
   window.MaisonFetes={noel:noel,paques:paques};
   if(!on)return;
@@ -26,6 +26,7 @@
       var pv=document.createElement('div');pv.className='fete-preview';
       pv.innerHTML='Aperçu '+(theme==='paques'?'Pâques':'Noël')+'<a href="'+location.pathname+'?fete=off'+location.hash+'">Quitter</a>';b.appendChild(pv)
     }
+    if(window.MA_NOSNOW)return;
     if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     var c=document.createElement('canvas');c.className='fete-canvas';c.setAttribute('aria-hidden','true');b.appendChild(c);
     var x=c.getContext('2d'),W,H,D=Math.min(window.devicePixelRatio||1,2),F=[];
