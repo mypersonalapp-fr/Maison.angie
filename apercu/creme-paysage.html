@@ -120,24 +120,6 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
  .js .blur,.js .reveal{opacity:1;filter:none;transform:none;transition:none}
 }
 
-.rl{max-width:1100px;margin:0 auto}
-.rl-stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1F1B1A}
-.rl-s{position:absolute;inset:0;display:block;clip-path:inset(0 0 0 100%);transition:clip-path .8s cubic-bezier(.7,0,.2,1);color:#fff;text-decoration:none}
-.rl-s.on{clip-path:inset(0);z-index:2}
-.rl-s.out{clip-path:inset(0 100% 0 0);z-index:1}
-.rl-s img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.08);transition:transform 4.8s ease-out}
-.rl-s.on img{transform:scale(1)}
-.rl-s:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,15,.62),rgba(20,16,15,0) 55%)}
-.rl-n{position:absolute;left:28px;bottom:70px;z-index:3;font:italic 22px 'Cormorant Garamond',serif;color:#E3CFA0}
-.rl-t{position:absolute;left:28px;bottom:22px;right:90px;z-index:3;font:500 clamp(28px,4.6vw,54px)/1.05 'Cormorant Garamond',serif}
-.rl-a{position:absolute;top:50%;margin-top:-26px;z-index:5;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.85);background:rgba(20,16,15,.25);color:#fff;font-size:20px;cursor:pointer}
-.rl-p{left:16px}.rl-x{right:16px}
-.rl-bar{display:flex;gap:6px;margin-top:14px}
-.rl-b{flex:1;height:3px;border:0;padding:12px 0;background:linear-gradient(#D9D0C8,#D9D0C8) center/100% 3px no-repeat;cursor:pointer;position:relative}
-.rl-b:after{content:"";position:absolute;left:0;top:50%;margin-top:-1.5px;height:3px;width:0;background:#8A6D2F}
-.rl-b.on:after{width:100%;transition:width 4s linear}
-@media(max-width:700px){.rl-stage{aspect-ratio:4/3}.rl-a{width:42px;height:42px;margin-top:-21px}.rl-n{left:18px;bottom:60px}.rl-t{left:18px}}
-
 /* Bannière d'accueil réduite */
 .hero{padding:56px 32px 64px}
 .hero-top{margin:0 0 10px;font-size:clamp(20px,2.6vw,28px)}
@@ -145,6 +127,16 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .bwl{margin:18px auto 0;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.2}
 .bwl2{margin:4px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(19px,2.2vw,26px);line-height:1.3;color:#4A4340}
 @media(max-width:700px){.hero{padding:40px 20px 44px}.h-xl{font-size:clamp(24px,7.6vw,40px)}}
+.rd-wall{display:flex;gap:10px;height:560px}.rd-pn{position:relative;flex:1;overflow:hidden;background:#E8E0D9;transition:flex .8s cubic-bezier(.45,.05,.25,1);min-width:0;display:block}.rd-pn:hover,.rd-pn:focus-visible{flex:5}.rd-pn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.55) brightness(.9);transition:filter .8s ease,transform 1.2s ease;transform:scale(1.1)}.rd-pn:hover img,.rd-pn:focus-visible img{filter:none;transform:scale(1)}.rd-v{position:absolute;left:0;right:0;top:24px;text-align:center;writing-mode:vertical-rl;transform:rotate(180deg);font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.45);transition:opacity .4s ease;white-space:nowrap}.rd-pn:hover .rd-v,.rd-pn:focus-visible .rd-v{opacity:0}.rd-cap{position:absolute;left:28px;right:28px;bottom:26px;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.5);opacity:0;transform:translateY(16px);transition:opacity .5s ease .25s,transform .6s ease .25s}.rd-pn:hover .rd-cap,.rd-pn:focus-visible .rd-cap{opacity:1;transform:none}
+@media(max-width:700px){.rd-wall{flex-direction:column;height:700px}.rd-v{writing-mode:horizontal-tb;transform:none;top:14px;font-size:22px}}
+
+/* Rideau paysage : bandes horizontales empilées, texte à l'endroit */
+.rd-wall{flex-direction:column;height:min(720px,92vw*1.2);max-width:1100px;margin:0 auto}
+.rd-wall{height:640px}
+.rd-pn:hover,.rd-pn:focus-visible{flex:5}
+.rd-v{writing-mode:horizontal-tb!important;transform:none!important;top:50%!important;margin-top:-18px;left:28px!important;right:28px!important;text-align:left!important;font-size:clamp(24px,3.4vw,38px)!important}
+.rd-pn:not(:hover) .rd-v{opacity:1}
+@media(max-width:700px){.rd-wall{height:560px}.rd-v{left:18px!important;font-size:24px!important}}
 </style>
 <script>window.addEventListener("error",function(){document.documentElement.classList.remove("js")})</script><link rel="stylesheet" href="assets/fetes.css?v=2"></head>
 <body>
@@ -194,7 +186,7 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div class="mason" id="allGal"></div>
 <div style="margin-top:24px"><button class="lnk" id="allBtn2" type="button">Masquer les gâteaux <svg class="rot" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
 </div>
-<div class="rl" id="rl"><div class="rl-stage"><a class="rl-s on" href="#collection/layer"><img src="assets/layer-fraises.jpg" alt="Layer cake"><span class="rl-n">01</span><span class="rl-t">Layer cake</span></a><a class="rl-s" href="#collection/cupcakes"><img src="assets/cupcakes.jpg" alt="Cupcakes"><span class="rl-n">02</span><span class="rl-t">Cupcakes</span></a><a class="rl-s" href="#collection/enfants"><img src="assets/anniversaire.jpg" alt="Anniversaires"><span class="rl-n">03</span><span class="rl-t">Anniversaires</span></a><a class="rl-s" href="#collection/gender"><img src="assets/gender-reveal.jpg" alt="Gender reveal"><span class="rl-n">04</span><span class="rl-t">Gender reveal</span></a><a class="rl-s" href="#collection/layer"><img src="assets/layer-oreo.jpg" alt="Layer cake chocolat et Oreo"><span class="rl-n">05</span><span class="rl-t">Layer cake chocolat et Oreo</span></a><button type="button" class="rl-a rl-p" id="rlP" aria-label="Précédent">&#8592;</button><button type="button" class="rl-a rl-x" id="rlN" aria-label="Suivant">&#8594;</button></div><div class="rl-bar"><button type="button" class="rl-b on" aria-label="Layer cake"></button><button type="button" class="rl-b" aria-label="Cupcakes"></button><button type="button" class="rl-b" aria-label="Anniversaires"></button><button type="button" class="rl-b" aria-label="Gender reveal"></button><button type="button" class="rl-b" aria-label="Layer cake chocolat et Oreo"></button></div></div>
+<div class="rd-wall"><a class="rd-pn" href="#collection/layer"><img src="assets/layer-fraises.jpg" alt="Layer cake"><span class="rd-v">Layer cake</span><span class="rd-cap"><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1">Layer cake</span><span style="font-size:14px">[Saveurs]</span></span></a><a class="rd-pn" href="#collection/enfants"><img src="assets/anniversaire.jpg" alt="Anniversaires"><span class="rd-v">Anniversaires</span><span class="rd-cap"><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1">Anniversaires</span><span style="font-size:14px">[Saveurs]</span></span></a><a class="rd-pn" href="#collection/cupcakes"><img src="assets/cupcakes.jpg" alt="Cupcakes"><span class="rd-v">Cupcakes</span><span class="rd-cap"><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1">Cupcakes</span><span style="font-size:14px">[Saveurs]</span></span></a><a class="rd-pn" href="#collection/gender"><img src="assets/gender-reveal.jpg" alt="Gender reveal"><span class="rd-v">Gender reveal</span><span class="rd-cap"><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1">Gender reveal</span><span style="font-size:14px">[Saveurs]</span></span></a><a class="rd-pn" href="#collection/layer"><img src="assets/layer-oreo.jpg" alt="Layer cake chocolat et Oreo"><span class="rd-v">Layer cake chocolat et Oreo</span><span class="rd-cap"><span style="display:block;font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1.1">Layer cake chocolat et Oreo</span><span style="font-size:14px">[Saveurs]</span></span></a></div>
 </section>
 
 <section class="band">
@@ -510,10 +502,5 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   demo('#devisForm', '#devisOk');
 })();
 </script>
-<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script src="assets/fetes.js?v=2"></script><script src="assets/vague.js"></script><script src="assets/forms.js"></script><script src="assets/lightbox.js?v=8"></script><script src="assets/swipe.js"></script><script>(function(){var r=document.getElementById('rl');if(!r)return;var S=[].slice.call(r.querySelectorAll('.rl-s')),B=[].slice.call(r.querySelectorAll('.rl-b')),i=0,t;
-function show(n){var o=i;i=(n+S.length)%S.length;if(o===i)return;S[o].classList.remove('on');S[o].classList.add('out');setTimeout(function(k){return function(){S[k].classList.remove('out')}}(o),900);S[i].classList.remove('out');S[i].classList.add('on');B.forEach(function(b,k){b.classList.remove('on');if(k===i){void b.offsetWidth;b.classList.add('on')}});play()}
-function play(){clearTimeout(t);t=setTimeout(function(){show(i+1)},4000)}
-r.querySelector('#rlN').onclick=function(){show(i+1)};r.querySelector('#rlP').onclick=function(){show(i-1)};B.forEach(function(b,k){b.onclick=function(){show(k)}});
-var x0=null;r.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;e.stopPropagation()},{passive:true});r.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40){show(i+(d<0?1:-1));e.preventDefault()}x0=null;e.stopPropagation()});
-play()})();</script></body>
+<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script src="assets/fetes.js?v=2"></script><script src="assets/vague.js"></script><script src="assets/forms.js"></script><script src="assets/lightbox.js?v=8"></script><script src="assets/swipe.js"></script></body>
 </html>
