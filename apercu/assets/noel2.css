@@ -1,0 +1,27 @@
+/* Édition Noël v2 : déco modérée, hors photos */
+html.fete .fete-strip{background:#1F1B1A;border-bottom:0;color:#E3CFA0;font-size:12px;letter-spacing:.3em;padding:10px 16px 4px}
+html.fete .fete-strip i{border-color:#C9A661;background:#C9A661}
+html.fete .fete-strip span{background:linear-gradient(90deg,transparent,#C9A661)}
+html.fete .fete-strip span.r{background:linear-gradient(270deg,transparent,#C9A661)}
+.nd2-verse{background:#1F1B1A;color:#C9B27A;text-align:center;font:italic 400 13px 'Cormorant Garamond',serif;letter-spacing:.04em;padding:0 16px 9px}
+.nd2-verse small{font:500 9px Karla,sans-serif;letter-spacing:.2em;text-transform:uppercase;margin-left:8px;opacity:.8}
+.nd-bunting{height:56px!important;background-size:auto 100%!important}
+html.fete .fete-garland{height:80px!important;background-size:auto 100%!important}
+footer.site::before{height:80px!important;background-size:auto 100%!important}
+.nd2-div{height:64px;background-size:auto 100%;background-repeat:repeat-x;background-position:center top;pointer-events:none}
+.rd-pn::after,.rd-bow{display:none!important}
+section,footer.site{position:relative}
+.nd2-bow{position:absolute;top:8px;width:64px;height:48px;z-index:3;pointer-events:none;filter:drop-shadow(0 3px 4px rgba(31,27,26,.22));transform-origin:50% 60%;animation:nd2-sway 5s ease-in-out infinite}
+.nd2-bow.l{left:5%}.nd2-bow.c{left:50%;margin-left:-32px}.nd2-bow.r{right:5%}
+.nd2-bow svg{width:100%;height:100%;display:block}
+@keyframes nd2-sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+.nd2-snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:16}
+.nd2-mu{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;align-items:center;gap:8px;height:44px;padding:0 16px 0 12px;border-radius:22px;border:1px solid #8A6D2F;background:rgba(253,252,251,.94);color:#1F1B1A;font:600 11px Karla,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.nd2-mu b{font-size:18px;font-weight:400;color:#8A6D2F}
+.nd2-mu.on b{animation:nd2-pulse 1.4s ease-in-out infinite}
+@keyframes nd2-pulse{50%{transform:scale(1.25)}}
+html.nd2-noir .nd-bunting,html.nd2-noir .fete-garland,html.nd2-noir footer.site::before,html.nd2-noir .nd2-div{filter:grayscale(1)}
+html.nd2-noir .nd2-verse,html.nd2-noir html.fete .fete-strip{color:#ddd}
+@media(max-width:700px){.nd2-bow{width:48px;height:36px}.nd2-bow.c{margin-left:-24px}.nd-bunting{height:44px!important}html.fete .fete-garland{height:62px!important}.nd2-mu{height:40px;padding:0 12px 0 10px}}
+@media(prefers-reduced-motion:reduce){.nd2-bow{animation:none}}
+html.nd2-noir.fete h1 em,html.nd2-noir.fete h2 em{color:inherit}html.nd2-noir.fete .fete-strip,html.nd2-noir .nd2-verse{color:#ddd}html.nd2-noir .nd2-verse small{color:#bbb}
