@@ -52,8 +52,8 @@ const wrap = (inner) => `<div style="font-family:Georgia,serif;max-width:560px;m
 function adminMail(type, d) {
   const titre = type === 'devis' ? 'Nouvelle demande de devis' : 'Nouveau message';
   const rows = type === 'devis'
-    ? row('Nom', d.nom) + row('E-mail', d.email) + row('Prestation', d.prestation) + row("Date de l'événement", d.date_evenement) + row('Parts', d.parts) + row('Livraison', d.livraison) + row('Saveurs', d.saveurs) + row('Étages', d.etages) + row('Thème', d.theme)
-    : row('Nom', d.nom) + row('E-mail', d.email) + row('Sujet', d.sujet) + row("Date de l'événement", d.date_evenement) + row('Message', d.message);
+    ? row('Nom', d.nom) + row('E-mail', d.email) + row('Téléphone', d.telephone) + row('Prestation', d.prestation) + row("Date de l'événement", d.date_evenement) + row('Parts', d.parts) + row('Livraison', d.livraison) + row('Saveurs', d.saveurs) + row('Étages', d.etages) + row('Thème', d.theme)
+    : row('Nom', d.nom) + row('E-mail', d.email) + row('Téléphone', d.telephone) + row('Sujet', d.sujet) + row("Date de l'événement", d.date_evenement) + row('Message', d.message);
   return {
     subject: `${titre} : ${d.nom}`,
     html: wrap(`<h2 style="font-weight:400;margin:0 0 16px">${titre}</h2><table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:15px">${rows}</table><p style="font-family:Arial,sans-serif;font-size:13px;color:#6b6460;margin-top:20px">Répondez directement à cet e-mail pour écrire au client.</p>`),
@@ -98,7 +98,7 @@ export default {
     if (raw.website) return json({ ok: true }, 200, cors); /* champ piège : robots */
 
     const d = {
-      nom: clean(raw.nom, 100), email: clean(raw.email, 150).toLowerCase(),
+      nom: (clean(raw.prenom, 60) + ' ' + clean(raw.nom, 100)).trim(), email: clean(raw.email, 150).toLowerCase(), telephone: clean(raw.telephone, 30),
       sujet: clean(raw.sujet, 60), date_evenement: clean(raw.date_evenement, 20),
       prestation: clean(raw.prestation, 80), parts: clean(raw.parts, 30), livraison: clean(raw.livraison, 60),
       saveurs: clean(raw.saveurs, 300), etages: clean(raw.etages, 30),
@@ -107,6 +107,8 @@ export default {
     if (!d.nom || !EMAIL.test(d.email)) return json({ ok: false, error: 'Nom ou e-mail invalide' }, 400, cors);
     if (type === 'devis' && (!d.prestation || !d.date_evenement || !d.theme)) return json({ ok: false, error: 'Champs manquants' }, 400, cors);
     if (type === 'contact' && !d.message) return json({ ok: false, error: 'Message manquant' }, 400, cors);
+
+    if (d.telephone) { if (type === 'contact') d.message = (d.message + '\nTéléphone : ' + d.telephone).trim(); else d.theme = (d.theme + '\nTéléphone : ' + d.telephone).trim(); }
 
     const ipHash = await sha256((request.headers.get('CF-Connecting-IP') || 'inconnu') + ':maison-angie');
     const recent = await env.DB.prepare("SELECT COUNT(*) AS n FROM demandes WHERE ip_hash = ? AND cree_le > datetime('now','-1 hour')").bind(ipHash).first();

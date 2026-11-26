@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[N&B] Maison Angie · Gâteaux, art, célébration</title>
+<title>Maison Angie · Gâteaux, art, célébration</title>
 <meta name="description" content="Maison Angie : gâteaux sur mesure, layer cakes, cupcakes et gâteaux de célébration. Demandez votre devis en ligne.">
-<!-- VERSION DE TEST : à retirer à la mise en ligne officielle -->
-<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="Maison Angie · Gâteaux, art, célébration">
 <meta property="og:description" content="Gâteaux sur mesure, layer cakes, cupcakes et gâteaux de célébration.">
@@ -175,6 +173,63 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 .sv-video button{position:absolute;right:12px;bottom:12px;background:rgba(0,0,0,.55);color:#fff;border:0;padding:10px 14px;font:500 11px Karla,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 .sv[data-go]{cursor:pointer;display:inline-block;border-bottom:1.5px solid currentColor;padding-bottom:2px;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
 @media(max-width:700px){.rd-wall{height:780px}}
+.hero .h-xl{font-size:clamp(40px,11.5vw,104px);font-weight:500}.hero-top{font-size:clamp(26px,4vw,40px)}.hero-in{padding:clamp(14px,3.5vw,50px) 0 clamp(14px,3.5vw,50px)}.hero-sub{margin:34px auto 0;max-width:640px;font-family:'Cormorant Garamond',serif;font-size:clamp(14px,4.1vw,36px);line-height:1.5;color:#3d3735;white-space:nowrap;max-width:none}.hero-cta{margin-top:44px;text-decoration:none;font-weight:700}
+.cc-info{max-width:640px;margin:0 auto 40px;text-align:center}.cc-info h3{font-family:inherit;font-weight:400;font-size:28px;margin:0 0 10px}.cc-info p,.cc-box .cc-t{margin:0 0 10px;color:var(--ink)}.cc-li{margin:0;padding:0;list-style:none;font-size:15px;line-height:1.7;color:var(--ink)}.cc-box .cc-t{font-weight:700}
+
+/* ---- Maquettes de prix (aperçu) ---- */
+.pr-note{max-width:640px;margin:22px auto 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.45;color:var(--muted)}
+.pr{display:none}.fam-pr{display:none}
+.pr-deco{max-width:640px;margin:22px auto 0;font-size:15px;line-height:1.7;color:var(--ink)}
+.pr-small{margin:10px 0 0;font-size:13px;line-height:1.6;color:var(--muted)}
+.fl .pr b{font-weight:500;font-size:18px;letter-spacing:.02em;color:var(--ink);font-family:'Karla',sans-serif}
+.fl .pr i{font-style:normal;font-size:12px;letter-spacing:.06em;color:var(--muted);margin-left:6px}
+.fl{position:relative}
+/* 1 : prix à droite du nom */
+[data-pv="1"] .fl{grid-template-columns:1fr auto;gap:6px 24px}[data-pv="1"] .fl p{grid-column:1/2;grid-row:2}[data-pv="1"] .fl .pr{display:block;grid-column:2;grid-row:1;text-align:right;white-space:nowrap}
+/* 2 : prix sous le nom, en petit italique */
+[data-pv="2"] .fl .pr{display:block}[data-pv="2"] .fl .pr b{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:19px}[data-pv="2"] .fl .pr i{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;letter-spacing:0;margin-left:4px}[data-pv="2"] .fl .pr{grid-column:1;grid-row:2}[data-pv="2"] .fl p{grid-column:2;grid-row:1/3}
+/* 3 : pointillés, façon carte */
+[data-pv="3"] .fl{grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:end}[data-pv="3"] .fl h3{grid-column:1;grid-row:1}[data-pv="3"] .fl::before{content:"";grid-column:2;grid-row:1;border-bottom:2px dotted #B9AFA9;align-self:end;margin-bottom:9px}[data-pv="3"] .fl .pr{display:block;grid-column:3;grid-row:1;white-space:nowrap}[data-pv="3"] .fl p{grid-column:1/-1;grid-row:2}
+/* 4 : un prix par famille */
+[data-pv="4"] .fam-pr{display:block;margin:8px 0 0;font-family:'Karla',sans-serif;font-style:normal;font-size:14px;letter-spacing:.04em;color:var(--ink)}[data-pv="4"] .fam-pr b{font-weight:700}
+/* 5 : pastille */
+[data-pv="5"] .fl{grid-template-columns:1fr 1.3fr auto;gap:8px 32px;align-items:center}[data-pv="5"] .fl .pr{display:flex;flex-direction:column;align-items:center;justify-content:center;width:74px;height:74px;border:1.5px solid var(--ink);border-radius:50%}[data-pv="5"] .fl .pr b{font-size:17px}[data-pv="5"] .fl .pr i{margin:0;font-size:10px}
+/* 6 : prix au toucher */
+[data-pv="6"] .fl{cursor:pointer}[data-pv="6"] .fl::after{content:"Voir le prix +";position:absolute;right:0;top:34px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--ink)}[data-pv="6"] .fl.open::after{content:""}[data-pv="6"] .fl.open .pr{display:block;position:absolute;right:0;top:30px}
+/* 7 : tableau */
+[data-pv="7"] .fl{grid-template-columns:1fr 1.3fr 120px;gap:8px 28px;border:1px solid var(--line);border-top:0;padding:22px 20px;align-items:center}[data-pv="7"] .fam-h{margin-bottom:0}[data-pv="7"] .fl .pr{display:block;text-align:center;border-left:1px solid var(--line);padding-left:20px}
+@media(max-width:700px){
+ .pr-note{font-size:17px;padding:0 4px}
+ [data-pv="1"] .fl{grid-template-columns:1fr auto}[data-pv="1"] .fl p{grid-column:1/-1;grid-row:2}
+ [data-pv="2"] .fl{grid-template-columns:1fr}[data-pv="2"] .fl .pr,[data-pv="2"] .fl p{grid-column:1;grid-row:auto}
+ [data-pv="3"] .fl p{grid-column:1/-1}
+ [data-pv="5"] .fl{grid-template-columns:1fr auto}[data-pv="5"] .fl p{grid-column:1/-1;grid-row:2}[data-pv="5"] .fl .pr{width:64px;height:64px}
+ [data-pv="6"] .fl::after{top:26px}[data-pv="6"] .fl.open .pr{top:22px}
+ [data-pv="7"] .fl{grid-template-columns:1fr 84px;padding:18px 12px}[data-pv="7"] .fl p{grid-column:1;grid-row:2}[data-pv="7"] .fl .pr{grid-column:2;grid-row:1/3;padding-left:10px}
+}
+
+.sv-int{max-width:1000px;margin:70px auto;padding:0 32px;display:flex;gap:36px;justify-content:center;flex-wrap:wrap}
+.sv-fig{margin:0;flex:0 1 380px;min-width:0}.sv-fig img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:68% 58%;display:block}
+.sv-fig figcaption{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--ink);text-align:center}
+.sv-min{margin:0;font-size:15px;letter-spacing:.04em;color:var(--ink)}.sv-min b{font-weight:700}
+@media(max-width:700px){.sv-int{padding:0 20px;margin:50px auto;gap:28px}}
+.mn{display:none}
+.pr-note{display:none!important}
+[data-nv="1"] .mn1{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:28px auto 0;max-width:720px}
+.mn1 span{border:1px solid var(--line);padding:7px 14px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:transparent}
+[data-nv="1"] .mn-foot,[data-nv="2"] .mn-foot{display:block;max-width:760px;margin:70px auto 0;padding:0 32px;font-size:13px;line-height:1.7;color:var(--muted);text-align:center}
+[data-nv="2"] .fam-pr::after{content:"*"}
+[data-nv="3"] .mn3{display:block;max-width:560px;margin:26px auto 0;text-align:center}
+.mn3 summary{cursor:pointer;list-style:none;display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px}
+.mn3 summary::-webkit-details-marker{display:none}.mn3 summary::after{content:" +"}.mn3[open] summary::after{content:" −"}
+.mn3 p{margin:16px 0 0;font-size:14px;line-height:1.7;color:var(--muted)}
+#mqBar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#1F1B1A;color:#fff;font:500 12px Karla,sans-serif;letter-spacing:.06em;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:none;gap:6px 14px;flex-wrap:wrap;align-items:center;justify-content:center}
+#mqBar.on{display:flex}#mqBar span{opacity:.7;text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+#mqBar button{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45);min-width:34px;height:34px;padding:0 10px;font:inherit;cursor:pointer}
+#mqBar button.on{background:#fff;color:#1F1B1A;border-color:#fff}
+.field.bad{border-bottom-color:#9B3B2F}.ferr{display:block;margin-top:6px;font-size:13px;color:#9B3B2F}
+.hc-row{display:flex;gap:30px;align-items:center;flex-wrap:wrap}.hc-row .lnk{display:inline-flex;align-items:center;gap:8px}#zoomV{position:fixed;inset:0;z-index:2147483647;background:#FDFCFA;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;cursor:zoom-out}#zoomV.on{opacity:1}#zoomV img{max-width:100%;max-height:100%;object-fit:contain}#zoomV button{position:absolute;top:14px;right:14px;width:48px;height:48px;border:1px solid #1F1B1A;background:#FDFCFA;font-size:26px;line-height:1;color:#1F1B1A}.spinbtn{display:inline-flex;align-items:center;gap:9px;padding:10px 18px 10px 15px;border:1px solid #1F1B1A;border-radius:999px;background:transparent;color:#1F1B1A;font:500 11px/1 Karla,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .35s ease,color .35s ease}.spinbtn svg{transition:transform .6s ease}.spinbtn:hover,.spinbtn:active,.spinbtn:focus-visible{background:#1F1B1A;color:#FDFCFB;outline:none}.spinbtn:hover svg,.spinbtn:active svg{transform:rotate(180deg)}
+@media (prefers-reduced-motion:no-preference){#colGal figure,#allGal figure{animation:fgIn .6s ease both}@keyframes fgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}}
 </style>
 <script>window.addEventListener("error",function(){document.documentElement.classList.remove("js")})</script><link rel="stylesheet" href="assets/fetes.css?v=2"></head>
 <body>
@@ -193,12 +248,11 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <a class="dlink" href="#accueil">Accueil</a>
 <a class="dlink" href="#collection">La collection</a>
 <a class="dlink" href="#saveurs">Les saveurs</a>
-<a class="dlink" href="#coulisses">En coulisses</a>
 <a class="dlink" href="#moi">Qui suis-je ?</a>
 <a class="dlink" href="#infos">Informations</a>
 <a class="dlink" href="#contact">Contact</a>
 <a class="dlink" href="#devis">Devis</a>
-<p class="eyebrow" style="margin-top:32px;color:#555555"><a href="https://www.instagram.com/maison.angie?xtok=dGVnNjY4Z2o3bWdz" target="_blank" rel="noopener" style="color:inherit">Instagram</a> · TikTok · Facebook</p>
+<p class="eyebrow" style="margin-top:32px;color:#555555"><a href="https://www.instagram.com/maison.angie?xtok=dGVnNjY4Z2o3bWdz" target="_blank" rel="noopener" style="color:inherit">Instagram</a></p>
 </nav>
 <div class="veil" id="veil"></div>
 </div>
@@ -209,17 +263,17 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div data-page="accueil">
 <section class="hero">
 <div class="hero-in">
-<p class="hero-top"><span>Maison</span> <em>Angie</em> <span>vous présente</span></p>
-<h1 class="h-xl">Sa Collection <em>Signature</em></h1>
-<p class="bwl">Bake With Love</p>
-<p class="bwl2"><em>Ce qui rend vos gâteaux uniques</em></p>
-</div>
-</section>
+  <p class="hero-top" style="color:#6b6360"><em>Cake design</em></p>
+  <h1 class="h-xl">Bake With Love</h1>
+  <p class="hero-sub">L’art du gâteau, pour tous vos événements.</p>
+  <a class="btn hero-cta" href="#collection">Découvrir la collection</a>
+  </div>
+  </section>
 
 <section class="sec">
 <p class="eyebrow">Une raison de célébrer</p>
 <h2 class="h-l" style="margin-bottom:36px">La <em>collection.</em></h2>
-<div style="margin-bottom:56px"><button class="lnk" id="allBtn" type="button" aria-expanded="false" aria-controls="allPanel"><span id="allLabel">Tous les gâteaux</span> <span id="allChev" style="display:inline-flex"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button></div>
+<div class="hc-row" style="margin-bottom:44px"><button class="spinbtn" id="spinHome" type="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5"/></svg> Faire défiler</button><a class="lnk" href="#collection">Voir tous <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div style="display:none"><button class="lnk" id="allBtn" type="button" aria-expanded="false" aria-controls="allPanel"><span id="allLabel">Tous les gâteaux</span> <span id="allChev" style="display:inline-flex"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button></div>
 <div id="allPanel" hidden style="margin-bottom:96px">
 <div class="tabs" role="tablist" id="allTabs"></div>
 <div class="mason" id="allGal"></div>
@@ -257,28 +311,15 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <section class="sec">
 <p class="eyebrow">Une raison de célébrer</p>
 <h2 class="h-l" style="margin-bottom:56px">La <em>collection.</em></h2>
-<div class="tabs" role="tablist" id="colTabs"></div>
-<div class="mason" id="colGal"></div>
+<div class="tabs" role="tablist" id="colTabs"></div><div class="hc-row" id="colSpin" style="margin:-20px 0 28px" hidden><button class="spinbtn" id="spinCol" type="button"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5"/></svg> Faire défiler</button></div>
+<div class="cc-info" id="ccInfo" hidden><h3>Cupcakes</h3><p>Des cupcakes à partager, disponibles en coffrets de 4, 6 ou 12.</p><ul class="cc-li"><li>Jusqu’à 2 saveurs au choix pour les coffrets de 4 et 6.</li><li>Jusqu’à 3 saveurs au choix pour les coffrets de 12.</li></ul></div><div class="mason" id="colGal"></div>
 </section>
 </div>
 
 <!-- LES SAVEURS -->
 <div data-page="saveurs" hidden>
-<section class="sec" style="padding-bottom:20px;text-align:center"><p class="eyebrow">La Maison Angie</p><h1 class="h-xl" style="font-weight:400;white-space:normal;font-size:clamp(52px,9vw,110px)">Les <em>saveurs.</em></h1><p class="txt" style="max-width:640px;margin:32px auto 0">Au cœur de chaque création, une rencontre de saveurs imaginée pour rendre vos moments encore plus précieux.</p></section>
-<section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">01</span> / Pour commencer</p><h2 class="h-m">Les <em>intemporelles.</em></h2></div><p class="fam-i">Des saveurs délicates que l’on aime retrouver.</p></div><div class="fl"><h3>Vanille</h3><p>Génoise vanille <span>·</span> Crème vanille</p></div><div class="fl"><h3>Chocolat</h3><p>Génoise chocolat <span>·</span> Crème chocolat</p></div><div class="fl"><h3>Caramel au beurre salé</h3><p>Génoise vanille <span>·</span> Crème vanille <span>·</span> Caramel au beurre salé</p></div></section><div class="sv-photo split reveal"><div class="sv-video"><video id="svVideo" autoplay muted loop playsinline preload="metadata" poster="assets/saveurs-creme-poster.jpg" src="assets/saveurs-creme.mp4" aria-label="Vidéo : la crème en préparation"></video><button type="button" id="svSound" aria-pressed="false">Activer le son</button></div><div style="flex:1 1 280px;max-width:420px"><p class="eyebrow">En cuisine</p><p class="sv-cap">La crème de la maison, en préparation. [Légende à confirmer par Angie]</p></div></div><section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">02</span> / Au fil des saisons</p><h2 class="h-m">Les <em>fruitées.</em></h2></div><p class="fam-i">Une touche fruitée au cœur de votre création.</p></div><div class="fl"><h3>Mangue &amp; Passion</h3><p>Génoise vanille <span>·</span> Crème vanille <span>·</span> Garniture mangue-passion</p></div><div class="fl"><h3>Fraise</h3><p>Génoise vanille <span>·</span> Crème vanille <span>·</span> Garniture à la fraise</p></div><div class="fl"><h3>Framboise</h3><p>Génoise vanille <span>·</span> Crème vanille <span>·</span> Garniture à la framboise</p></div><div class="fl-saison" role="note"><b>Nos garnitures fruitées</b><p><strong>En saison</strong>, la <strong><em>Maison Angie</em></strong> choisit ses fruits frais avec soin, au plus près de leur maturité, pour une garniture pleine de goût. <strong>Hors saison</strong>, elle vous propose un confit de fruits, parfois associé à des fruits frais, selon la recette et les contraintes de conservation, pour garder toute la gourmandise de la saveur. Bien évidemment, la <strong><em>Maison Angie</em></strong> prend soin de confirmer la garniture avec vous au moment du devis. [À confirmer par Angie]</p></div></section><div class="sv-photo split rev reveal"><div class="sv-video"><video id="svVideo2" class="sv-fr" autoplay muted loop playsinline preload="metadata" poster="assets/saveurs-fruits-poster.jpg" src="assets/saveurs-fruits.mp4" aria-label="Vidéo : une création fruitée en préparation"></video><button type="button" data-snd="svVideo2">Activer le son</button></div><div style="flex:1 1 280px;max-width:420px"><p class="eyebrow">Création fruitée</p><p class="sv-cap">Mangue passion, en coulisses. [Légende à confirmer par Angie]</p></div></div><section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">03</span> / Pour finir en douceur</p><h2 class="h-m">Les <em>gourmandes.</em></h2></div><p class="fam-i">Des associations pour les plus gourmands.</p></div><div class="fl"><h3>Spéculoos</h3><p>Génoise vanille <span>·</span> Crème spéculoos</p></div><div class="fl"><h3>Chocolat, Cacahuète &amp; Caramel</h3><p>Génoise chocolat <span>·</span> Crème cacahuète <span>·</span> Caramel</p></div><div class="fl"><h3>Café</h3><p>Génoise vanille <span>·</span> Crème café</p></div></section><section class="band" style="text-align:center"><div style="max-width:760px;margin:0 auto"><p class="eyebrow">Votre moment, votre création</p><h2 class="h-l">Une envie <em>particulière ?</em></h2><p class="txt" style="margin:28px 0 44px">Imaginons ensemble le gâteau de votre prochain événement.</p><a class="btn" href="#devis">Parlons de votre projet <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></section>
-</div>
-
-<!-- EN COULISSES -->
-<div data-page="coulisses" hidden>
-<section style="max-width:1100px;margin:0 auto;padding:100px 32px 120px">
-<p class="eyebrow">En coulisses</p>
-<h2 class="h-l" style="margin-bottom:72px">Le geste, <em>en mouvement.</em></h2>
-<!-- Pour ajouter une vidéo : copier le bloc ci-dessous. Une vidéo sur deux ajoute la classe "rev" (vidéo à droite). -->
-<div class="vrow">
-<video class="blur" controls playsinline preload="metadata" poster="assets/coulisses-poster.jpg" src="assets/coulisses.mp4" style="flex:0 1 380px;width:100%;max-width:380px;height:auto;display:block;background:#000000"></video>
-<div style="flex:1 1 300px;max-width:460px"><h3 style="font-size:34px;line-height:1.1;font-weight:700;margin-bottom:16px">[Titre de la vidéo]</h3><p class="txt">[Légende : la création, ses saveurs, ce qu'on voit dans la vidéo.]</p></div>
-</div>
-</section>
+<section class="sec" style="padding-bottom:20px;text-align:center"><p class="eyebrow">La Maison Angie</p><h1 class="h-xl" style="font-weight:400;white-space:normal;font-size:clamp(52px,9vw,110px)">Les <em>saveurs.</em></h1><p class="txt" style="max-width:640px;margin:32px auto 0">Au cœur de chaque création, une rencontre de saveurs imaginée pour rendre vos moments encore plus précieux.</p><p class="pr-note" id="prNote" hidden></p><details class="mn mn3"><summary>Prix à la part · Décoration classique incluse</summary><p>Les tarifs indiqués s’entendent à la part. Le devis vous confirme le prix final de votre gâteau.</p><p>Nos prix incluent une décoration classique : crème ou coulure, avec une petite touche de couleur. Les personnalisations (thème, figurines, lettrage, créations sur mesure) sont chiffrées à part, sur devis.</p></details></section>
+<section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">01</span></p><h2 class="h-m">Les <em>délicates.</em></h2></div><p class="fam-i">Les classiques qu’on aime retrouver.</p><p class="fam-pr">À partir de <b>4 €</b> la part</p></div><div class="fl" tabindex="0" data-pr="4,50 €"><h3>Vanille</h3><p>Génoise vanille <span>·</span> Crème vanille</p><span class="pr"><b>4,50 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="4 €"><h3>Chocolat</h3><p>Génoise chocolat <span>·</span> Crème chocolat</p><span class="pr"><b>4 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="4,50 €"><h3>Caramel salé</h3><p>Génoise vanille <span>·</span> Crème vanille <span>·</span> Caramel au beurre salé</p><span class="pr"><b>4,50 €</b><i>la part</i></span></div></section><div class="sv-int"><figure class="sv-fig"><img src="../assets/int-choco.jpg" alt="Intérieur d’un gâteau chocolat, caramel et cacahuète" loading="lazy"><figcaption>Chocolat, caramel et cacahuète</figcaption></figure></div><section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">02</span></p><h2 class="h-m">Les <em>fruitées.</em></h2></div><p class="fam-i">Au fil des saisons.</p><p class="fam-pr">À partir de <b>6,50 €</b> la part</p></div><div class="fl" tabindex="0" data-pr="6,50 €"><h3>Exotique (Mangue &amp; Passion)</h3><p>Crème vanillée, confit mangue-passion, fruits frais et noix de coco râpée.</p><span class="pr"><b>6,50 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="6,50 €"><h3>Fraise</h3><p>Crème vanillée, confit de fraise et fruits frais.</p><span class="pr"><b>6,50 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="6,50 €"><h3>Framboise</h3><p>Crème vanillée, confit de framboise et fruits frais.</p><span class="pr"><b>6,50 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="6,50 €"><h3>Pistache &amp; Framboise</h3><p>Crème à la pistache, insert framboise et fruits frais.</p><span class="pr"><b>6,50 €</b><i>la part</i></span></div><div class="fl-saison" role="note"><b>Nos garnitures fruitées</b><p><strong>En saison</strong>, la <strong><em>Maison Angie</em></strong> choisit ses fruits frais avec soin, au plus près de leur maturité, pour une garniture pleine de goût. <strong>Hors saison</strong>, elle vous propose un confit de fruits, parfois associé à des fruits frais, selon la recette et les contraintes de conservation, pour garder toute la gourmandise de la saveur. Bien évidemment, la <strong><em>Maison Angie</em></strong> prend soin de confirmer la garniture avec vous au moment du devis. [À confirmer par Angie]</p></div></section><div class="sv-int"><figure class="sv-fig"><img src="../assets/int-mangue.jpg" alt="Intérieur d’un layer cake mangue passion" loading="lazy"><figcaption>Mangue &amp; Passion</figcaption></figure></div><section class="fam reveal"><div class="fam-h"><div><p class="eyebrow"><span class="no">03</span></p><h2 class="h-m">Les <em>gourmandes.</em></h2></div><p class="fam-i">Pour finir en douceur.</p><p class="fam-pr">À partir de <b>5 €</b> la part</p></div><div class="fl" tabindex="0" data-pr="5 €"><h3>Spéculoos</h3><p>Crème spéculoos et éclats de biscuits.</p><span class="pr"><b>5 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="5,50 €"><h3>Cacao &amp; Cacahuète</h3><p>Crème au chocolat, crème vanillée et insert caramel beurre salé.</p><span class="pr"><b>5,50 €</b><i>la part</i></span></div><div class="fl" tabindex="0" data-pr="5 €"><h3>Espresso</h3><p>Crème vanillée et café.</p><span class="pr"><b>5 €</b><i>la part</i></span></div></section><section class="band" style="text-align:center"><div style="max-width:760px;margin:0 auto"><p class="eyebrow">Votre moment, votre création</p><h2 class="h-l">Une envie <em>particulière ?</em></h2><p class="txt" style="margin:28px 0 44px">Imaginons ensemble le gâteau de votre prochain événement.</p><a class="btn" href="#devis">Parlons de votre projet <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div></section>
 </div>
 
 <!-- QUI SUIS-JE -->
@@ -316,11 +357,9 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <h2 class="h-l">Écrivons-<em>nous.</em></h2>
 <p class="txt" style="margin:28px 0 56px">Une question, un événement, une collaboration ? Envoie-moi un message.</p>
 <form class="form" id="contactForm">
-<div><label class="lbl" for="cn">Votre nom *</label><input class="field" id="cn" name="nom" type="text" placeholder="Prénom et nom" required autocomplete="name"></div>
-<div><label class="lbl" for="ce">E-mail *</label><input class="field" id="ce" name="email" type="email" placeholder="vous@exemple.com" required autocomplete="email"></div>
-<div class="full"><span class="lbl" id="sjLbl">Sujet</span><div class="row" id="sjChips" role="group" aria-labelledby="sjLbl"></div><input type="hidden" name="sujet" id="sjVal"></div>
+<div><label class="lbl" for="cp">Prénom *</label><input class="field" id="cp" name="prenom" type="text" placeholder="Votre prénom" required data-req autocomplete="given-name"></div><div><label class="lbl" for="cn">Nom *</label><input class="field" id="cn" name="nom" type="text" placeholder="Votre nom" required data-req autocomplete="family-name"></div><div><label class="lbl" for="ce">E-mail *</label><input class="field" id="ce" name="email" type="email" placeholder="vous@exemple.com" required data-req autocomplete="email"></div><div><label class="lbl" for="ct">Téléphone *</label><input class="field" id="ct" name="telephone" type="tel" placeholder="06 00 00 00 00" required data-req autocomplete="tel"></div><div class="full"><span class="lbl" id="sjLbl">Sujet</span><div class="row" id="sjChips" role="group" aria-labelledby="sjLbl"></div><input type="hidden" name="sujet" id="sjVal"></div>
 <div class="full" id="sjDate" hidden><label class="lbl" for="cd">Date de l'événement</label><input class="field" id="cd" name="date_evenement" type="date" style="max-width:320px"></div>
-<div class="full"><label class="lbl" for="cm">Votre message *</label><textarea class="field" id="cm" name="message" rows="4" placeholder="Dites-moi tout…" required></textarea></div>
+<div class="full"><label class="lbl" for="cm">Votre message *</label><textarea class="field" id="cm" name="message" rows="4" placeholder="Dites-moi tout…" required data-req></textarea></div>
 <div><button class="btn" type="submit">Envoyer le message <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button></div>
 <p class="notice" id="contactOk" role="status" hidden>Merci ! Votre message est bien envoyé. Un e-mail de confirmation vous est envoyé automatiquement. <small>(Version de test : rien n'est encore transmis.)</small></p>
 </form>
@@ -333,16 +372,15 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 <div style="max-width:900px;margin:0 auto">
 <p class="eyebrow">Un beau début</p>
 <h2 class="h-l">Parlons <em>gâteau.</em></h2>
-<p class="txt" style="margin:28px 0 56px">Une célébration en tête ? Racontez-moi votre occasion, vos idées et le gâteau dont vous rêvez.</p>
+<p class="txt" style="margin:28px 0 20px">Une célébration en tête ? Racontez-moi votre occasion, vos idées et le gâteau dont vous rêvez.</p><p class="sv-min"><b>Commandes à partir de 10 parts.</b></p><div style="height:36px"></div>
 <form class="form" id="devisForm">
 <div><label class="lbl" for="n">Votre nom *</label><input class="field" id="n" name="nom" type="text" placeholder="Prénom et nom" required autocomplete="name"></div>
 <div><label class="lbl" for="e">E-mail *</label><input class="field" id="e" name="email" type="email" placeholder="vous@exemple.com" required autocomplete="email"></div>
 <div><label class="lbl" for="t">Type de prestation *</label><select class="field" id="t" name="prestation" required><option>Layer cake</option><option>Cupcakes</option><option>Anniversaire enfant</option><option>Anniversaire</option><option>Gender reveal</option><option>Gâteau de mariage</option></select></div>
 <div><label class="lbl" for="d">Date de l'événement *</label><input class="field" id="d" name="date_evenement" type="date" required></div>
-<div><label class="lbl" for="s">Nombre de parts *</label><select class="field" id="s" name="parts" required><option>8 parts</option><option>12 parts</option><option>16 parts</option><option>18 parts</option><option>20 parts et plus</option></select></div>
+<div><label class="lbl" for="s">Nombre de parts *</label><select class="field" id="s" name="parts" required><option>10 parts</option><option>12 parts</option><option>16 parts</option><option>20 parts</option><option>30 parts et plus</option></select></div>
 <div><label class="lbl" for="l">Livraison</label><select class="field" id="l" name="livraison"><option>Non, retrait sur place</option><option>Oui, livraison (supplément)</option></select></div>
-<div class="full"><span class="lbl">Options · saveurs</span><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 36px"><select class="field" name="saveur1" aria-label="Saveur 1"><option value="">Saveur 1 : choisir</option><option>Vanille</option><option>Chocolat</option><option>Fraise</option><option>Caramel beurre salé</option><option>Pistache</option><option>Citron</option><option>Framboise</option><option>Oreo</option><option>Autre (à préciser ci-dessous)</option></select><select class="field" name="saveur2" aria-label="Saveur 2"><option value="">Saveur 2 : choisir</option><option>Vanille</option><option>Chocolat</option><option>Fraise</option><option>Caramel beurre salé</option><option>Pistache</option><option>Citron</option><option>Framboise</option><option>Oreo</option><option>Autre (à préciser ci-dessous)</option></select><select class="field" name="saveur3" aria-label="Saveur 3"><option value="">Saveur 3 : choisir</option><option>Vanille</option><option>Chocolat</option><option>Fraise</option><option>Caramel beurre salé</option><option>Pistache</option><option>Citron</option><option>Framboise</option><option>Oreo</option><option>Autre (à préciser ci-dessous)</option></select></div><div style="margin-top:24px"><label class="lbl" for="sa">Autre saveur (si elle n'est pas dans la liste)</label><input class="field" id="sa" name="autre_saveur" type="text" placeholder="Précisez la saveur souhaitée"></div></div>
-<div class="full"><span class="lbl" id="etLbl">Étages</span><div class="row" id="etChips" role="group" aria-labelledby="etLbl"></div><div class="row" id="etNb" hidden style="margin-top:16px" role="group" aria-label="Nombre d'étages"></div><input type="hidden" name="etages" id="etVal"></div>
+<div class="full cc-box" id="ccBox" hidden><p class="cc-t">Des cupcakes à partager, disponibles en coffrets de 4, 6 ou 12.</p><ul class="cc-li"><li>Jusqu’à 2 saveurs au choix pour les coffrets de 4 et 6.</li><li>Jusqu’à 3 saveurs au choix pour les coffrets de 12.</li></ul></div><div class="full"><label class="lbl" for="sv1">Saveur souhaitée</label><select class="field" id="sv1" name="saveur1"><option value="">Choisir une saveur</option><option>Vanille</option><option>Chocolat</option><option>Caramel salé</option><option>Exotique (Mangue &amp; Passion)</option><option>Fraise</option><option>Framboise</option><option>Pistache &amp; Framboise</option><option>Spéculoos</option><option>Cacao &amp; Cacahuète</option><option>Espresso</option><option value="Autre">Autre saveur / Autre demande</option></select><p class="pr-small">Décoration classique incluse (crème ou coulure, petite touche de couleur). Personnalisation en supplément.</p><div id="svOther" hidden style="margin-top:24px"><label class="lbl" for="sa">Autre saveur / Autre demande</label><input class="field" id="sa" name="autre_saveur" type="text" placeholder="Précisez la saveur ou votre demande"></div></div><div class="full cc-fl" id="ccW2" hidden><label class="lbl" for="sv2">Saveur 2</label><select class="field" id="sv2" name="saveur2"><option value="">Choisir une saveur</option><option>Vanille</option><option>Chocolat</option><option>Caramel salé</option><option>Exotique (Mangue &amp; Passion)</option><option>Fraise</option><option>Framboise</option><option>Pistache &amp; Framboise</option><option>Spéculoos</option><option>Cacao &amp; Cacahuète</option><option>Espresso</option></select></div><div class="full cc-fl" id="ccW3" hidden><label class="lbl" for="sv3">Saveur 3</label><select class="field" id="sv3" name="saveur3"><option value="">Choisir une saveur</option><option>Vanille</option><option>Chocolat</option><option>Caramel salé</option><option>Exotique (Mangue &amp; Passion)</option><option>Fraise</option><option>Framboise</option><option>Pistache &amp; Framboise</option><option>Spéculoos</option><option>Cacao &amp; Cacahuète</option><option>Espresso</option></select></div><div class="full"><span class="lbl" id="etLbl">Étages</span><div class="row" id="etChips" role="group" aria-labelledby="etLbl"></div><div class="row" id="etNb" hidden style="margin-top:16px" role="group" aria-label="Nombre d'étages"></div><input type="hidden" name="etages" id="etVal"></div>
 <div class="full"><label class="lbl" for="m">Parlez-moi de votre thème *</label><textarea class="field" id="m" name="theme" rows="3" placeholder="Thème, couleurs, inspirations, budget…" required></textarea></div>
 <div class="full"><label class="lbl" for="pj">Ajouter une pièce jointe</label><input class="field" id="pj" name="pieces_jointes" type="file" multiple accept="image/*,.pdf"><p style="margin:8px 0 0;font-size:14px;color:#555555">Photo d'inspiration, modèle, document : plusieurs fichiers possibles.</p></div>
 <div><button class="btn" type="submit">Envoyer ma demande <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button></div>
@@ -356,14 +394,11 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
 
 <footer class="site">
 <img class="flogo" src="assets/logo.png" alt="Maison Angie">
-<p class="tag">L'art de célébrer</p>
+
 <div class="social">
 <a class="lnk" href="https://www.instagram.com/maison.angie?xtok=dGVnNjY4Z2o3bWdz" target="_blank" rel="noopener">Instagram <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-<a class="lnk">TikTok <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-<a class="lnk">Facebook <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 <a class="lnk">LinkedIn <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 </div>
-<p class="eyebrow" style="margin:56px 0 0;color:#555555">Gâteaux · Art · Célébration</p>
 <p class="copy">© 2026 Maison Angie. Tous droits réservés. · [Mentions légales]</p>
 </footer>
 
@@ -385,7 +420,12 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
     { cat: 'gender', nom: 'Gender reveal', legende: '[Légende : couleur surprise, saveurs, décor]', img: 'assets/gender-reveal-oursons.jpg' },
     { cat: 'layer', nom: 'Layer cake noir et blanc', legende: '[Légende : saveurs, finition]', img: 'assets/layer-noir-blanc.jpg' },
     { cat: 'enfants', nom: 'Anniversaire super-héros', legende: '[Légende : âge, thème, saveurs]', img: 'assets/anniv-superheros.jpg' },
-    { cat: 'cupcakes', nom: 'Cupcakes pastel', legende: '[Légende : saveurs, nombre]', img: 'assets/cupcakes-pastel.jpg' }
+    { cat: 'cupcakes', nom: 'Cupcakes pastel', legende: '[Légende : saveurs, nombre]', img: 'assets/cupcakes-pastel.jpg' },
+    { cat: 'layer', nom: 'Layer cake fraise', legende: 'Fraise', img: '../assets/col/fraise-whole.jpg', det: ['../assets/col/fraise-slice.jpg'] },
+    { cat: 'layer', nom: 'Layer cake chocolat', legende: 'Chocolat, caramel, cacahuète', img: '../assets/col/choco-whole.jpg', det: ['../assets/col/choco-slice.jpg','../assets/col/choco-spoon.jpg'] },
+    { cat: 'layer', nom: 'Layer cake exotique', legende: 'Mangue & Passion', img: '../assets/col/exo-whole.jpg', det: ['../assets/col/exo-slice.jpg'] },
+    { cat: 'layer', nom: 'Layer cake framboise', legende: 'Framboise', img: '../assets/col/framb-whole.jpg', det: [] },
+    { cat: 'cupcakes', nom: 'Cupcakes fraise & passion', legende: 'Fraise, passion', img: '../assets/col/cup-poster.jpg', det: ['../assets/col/cup-fp-photo.jpg','../assets/col/cup-fraise-box.jpg'] }
   ];
   window.MA_CAT = CAT;
   var ORDER = ['mariage', 'layer', 'enfants', 'gender', 'cupcakes'];
@@ -486,8 +526,8 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   doc.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !drawer.hidden) menu(false); });
 
   /* ---------- Pages (navigation par l'adresse #...) ---------- */
-  var PAGES = ['accueil', 'collection', 'saveurs', 'coulisses', 'moi', 'infos', 'contact', 'devis'];
-  var TITLES = { accueil: 'Maison Angie · Gâteaux, art, célébration', collection: 'La collection · Maison Angie', saveurs: 'Les saveurs · Maison Angie', coulisses: 'En coulisses · Maison Angie', moi: 'Qui suis-je ? · Maison Angie', infos: 'Informations · Maison Angie', contact: 'Contact · Maison Angie', devis: 'Devis · Maison Angie' };
+  var PAGES = ['accueil', 'collection', 'saveurs', 'moi', 'infos', 'contact', 'devis'];
+  var TITLES = { accueil: 'Maison Angie · Gâteaux, art, célébration', collection: 'La collection · Maison Angie', saveurs: 'Les saveurs · Maison Angie', moi: 'Qui suis-je ? · Maison Angie', infos: 'Informations · Maison Angie', contact: 'Contact · Maison Angie', devis: 'Devis · Maison Angie' };
   var first = true;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var timer = null;
@@ -572,6 +612,256 @@ footer.site .tag{margin:18px 0 28px;font-family:'Cormorant Garamond',serif;font-
   demo('#devisForm', '#devisOk');
 })();
 </script>
-<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script src="assets/fetes.js?v=2"></script><script src="assets/vague.js"></script><script src="assets/forms.js"></script><script src="assets/lightbox.js?v=8"></script><script src="assets/swipe.js"></script><script>(function(){document.querySelectorAll(".sv-video button").forEach(function(b){var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})})()</script>
-</body>
+<script>(function(){var b=document.getElementById("soundBtn");if(!b)return;var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})()</script><script src="assets/fetes.js?v=2"></script><script>/* Le titre d'accueil arrive en vague, une seule fois. */
+(function(){
+  'use strict';
+  var h=document.querySelector('h1.h-xl');
+  if(!h||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  var st=document.createElement('style');
+  st.textContent='@keyframes vague{0%{opacity:0;transform:translateY(.55em)}45%{opacity:1;transform:translateY(-.16em)}72%{transform:translateY(.05em)}100%{opacity:1;transform:none}}'+
+  'h1.h-xl .vg{display:inline-block;opacity:0;white-space:pre}h1.h-xl.go .vg{animation:vague .95s cubic-bezier(.3,.7,.3,1) both;animation-delay:calc(var(--i)*55ms)}';
+  document.head.appendChild(st);
+  h.setAttribute('aria-label',h.textContent);
+  var n=0;
+  (function split(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(c){
+      if(c.nodeType===3){
+        var f=document.createDocumentFragment();
+        c.nodeValue.split('').forEach(function(ch){var s=document.createElement('span');s.className='vg';s.setAttribute('aria-hidden','true');s.style.setProperty('--i',n++);s.textContent=ch;f.appendChild(s)});
+        c.parentNode.replaceChild(f,c);
+      }else if(c.nodeType===1)split(c);
+    });
+  })(h);
+  function go(){h.classList.add('go')}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();io.disconnect()}},{threshold:.3});io.observe(h);
+  }else go();
+})();
+</script><script src="assets/forms.js"></script><script>/* Maison Angie : plateau tournant pour les photos de la collection */
+(function () {
+  'use strict';
+  var doc = document, items = [], idx = 0, lastFocus = null, box, ring, stage, nameEl, legEl, link, cnt, imgs = [], thetaDeg = 0;
+
+  var css = '.lb{position:fixed;inset:0;z-index:2147483647;background:#FFFFFF;display:none;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;color:#1F1B1A;font-family:Karla,sans-serif}' +
+    '.lb.on{display:flex;animation:lbIn .45s ease}.lb.off{opacity:0;transition:opacity .3s ease}@keyframes lbIn{from{opacity:0}to{opacity:1}}' +
+    '.lb-stage{position:relative;width:100%;height:calc(100vh - 230px);min-height:300px;perspective:1500px;perspective-origin:50% 45%}' +
+    '.lb-ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.45,.05,.25,1)}' +
+    '.lb-it{position:absolute;left:0;top:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;cursor:pointer}' +
+    '.lb-f,.lb-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:filter .9s ease}' +
+    '.lb-f{background:#FFFFFF}.lb-f img{width:100%;height:100%;object-fit:cover;display:block}' +
+    '.lb-b{transform:rotateY(180deg);background:#FFFFFF}' +
+    '.lb-clip{position:absolute;left:50%;top:-12px;width:16px;height:34px;margin-left:-8px;background:#B9A27A;border-radius:3px;box-shadow:0 1px 3px rgba(0,0,0,.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}' +
+    '.lb-clip.k{transform:rotateY(180deg)}' +
+    '.lb-cap{margin-top:12px;text-align:center;line-height:1.5;padding:0 72px}' +
+    '.lb-cap b{display:block;font:500 24px "Cormorant Garamond",serif}' +
+    '.lb-cap span{font-size:13px;opacity:.75}' +
+    '.lb-cap a{display:inline-block;margin-top:8px;color:#1F1B1A;font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px}' +
+    '.lb button{position:absolute;background:#FFFFFF;border:1px solid rgba(31,27,26,.5);color:#1F1B1A;width:48px;height:48px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;z-index:5}' +
+    '.lb button:hover,.lb button:focus-visible{background:#F2EEEB;outline:none;border-color:#1F1B1A}' +
+    '.lb-p{left:16px;top:45%}.lb-n{right:16px;top:45%}.lb-x{right:16px;top:16px}' +
+    '.lb-c{position:absolute;left:20px;top:28px;font-size:11px;letter-spacing:.2em;opacity:.7}' +
+    'figure img{cursor:zoom-in}' +
+    '@media(max-width:640px){.lb-p,.lb-n{top:auto;bottom:18px}.lb-cap{padding:0 76px}}' +
+    '@media(prefers-reduced-motion:reduce){.lb-ring,.lb-it{transition:none}}';
+  var st = doc.createElement('style'); st.textContent = css; doc.head.appendChild(st);
+
+  var ic = function (d) { return '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+
+  function build() {
+    box = doc.createElement('div');
+    box.className = 'lb'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', 'Photos de la collection');
+    box.innerHTML = '<div class="lb-c" aria-live="polite"></div>' +
+      '<button type="button" class="lb-x" aria-label="Fermer">' + ic('M6 6l12 12M18 6 6 18') + '</button>' +
+      '<button type="button" class="lb-p" aria-label="Gâteau précédent">' + ic('M15 5l-7 7 7 7') + '</button>' +
+      '<button type="button" class="lb-n" aria-label="Gâteau suivant">' + ic('M9 5l7 7-7 7') + '</button>' +
+      '<div class="lb-stage"><div class="lb-ring"></div></div>' +
+      '<div class="lb-cap"><b></b><span></span><br><a href="#">Voir la catégorie</a></div>';
+    doc.body.appendChild(box);
+    stage = box.querySelector('.lb-stage'); ring = box.querySelector('.lb-ring');
+    nameEl = box.querySelector('b'); legEl = box.querySelector('span'); link = box.querySelector('.lb-cap a'); cnt = box.querySelector('.lb-c');
+    box.querySelector('.lb-p').addEventListener('click', function () { go(-1); });
+    box.querySelector('.lb-n').addEventListener('click', function () { go(1); });
+    box.querySelector('.lb-x').addEventListener('click', close);
+    link.addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target === box || e.target === stage) close(); });
+    var x0 = null;
+    box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    });
+    window.addEventListener('resize', function () { if (box.classList.contains('on')) layout(); });
+  }
+
+  /* Dispose les photos sur un cylindre : la photo choisie est devant, les autres tournent autour */
+  function layout() {
+    var n = items.length, vw = window.innerWidth, vh = stage.clientHeight;
+    var h = Math.min(vh * 0.92, 560), w = Math.min(h * 0.8, vw * 0.74);
+    h = Math.min(h, w / 0.8);
+    var R = n > 2 ? Math.max((w / 2 + 14) / Math.tan(Math.PI / n), w * 0.9) : w * 0.9;
+    thetaDeg = 360 / n;
+    ring.style.width = ring.style.height = '0px';
+    imgs.forEach(function (it, i) {
+      var im = it.querySelector('.lb-f img'), ar = (im && im.naturalWidth) ? im.naturalHeight / im.naturalWidth : 1.25;
+      var cw = w, ch = w * ar;
+      if (ch > h) { ch = h; cw = h / ar; }
+      it.style.width = cw + 'px'; it.style.height = ch + 'px';
+      it.style.marginLeft = (-cw / 2) + 'px'; it.style.marginTop = (-ch / 2) + 'px';
+      it.style.transform = 'rotateY(' + (i * thetaDeg) + 'deg) translateZ(' + R + 'px)';
+    });
+    ring.dataset.r = R;
+    turn(true);
+  }
+
+  var rot = 0;
+  function turn(instant) {
+    var R = parseFloat(ring.dataset.r || 0);
+    if (instant) ring.style.transition = 'none';
+    ring.style.transform = 'translateZ(' + (-R) + 'px) rotateY(' + (-rot) + 'deg)';
+    if (instant) { void ring.offsetWidth; ring.style.transition = ''; }
+    var n = items.length;
+    imgs.forEach(function (it, i) {
+      var d = Math.min((i - idx + n) % n, (idx - i + n) % n);
+      var fl = d === 0 ? 'none' : 'brightness(.8)';
+      it.querySelector('.lb-f').style.filter = fl; it.querySelector('.lb-b').style.filter = fl;
+      it.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+    });
+    var c = items[idx];
+    nameEl.textContent = c.nom; legEl.textContent = c.legende || '';
+    if (c.cat) { link.hidden = false; link.setAttribute('href', '#collection/' + c.cat); link.textContent = c.cat === 'photos' ? 'Voir les photos' : 'Voir la galerie'; } else link.hidden = true;
+    cnt.textContent = (idx + 1) + ' / ' + n;
+  }
+
+  /* d = ±1 : le plateau tourne d'un cran, toujours dans le même sens (rotation continue) */
+  function go(d) {
+    idx = (idx + d + items.length) % items.length;
+    rot += d * thetaDeg;
+    turn(false);
+  }
+
+  function open(list, i) {
+    if (!box) build();
+    items = list; idx = i; rot = i * (360 / list.length); lastFocus = doc.activeElement;
+    ring.textContent = ''; imgs = [];
+    items.forEach(function (c, k) {
+      var it = doc.createElement('div'); it.className = 'lb-it';
+      var f = doc.createElement('div'); f.className = 'lb-f'; var im = doc.createElement('img'); im.src = c.src; im.alt = c.nom; im.addEventListener('load', function () { if (box.classList.contains('on')) layout(); }); f.appendChild(im);
+      var bk = doc.createElement('div'); bk.className = 'lb-b'; var im2 = doc.createElement('img'); im2.src = c.src; im2.alt = ''; im2.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block'; bk.appendChild(im2);
+      it.appendChild(bk); it.appendChild(f);
+      it.addEventListener('click', function () {
+        var n = items.length, diff = ((k - idx) % n + n) % n;
+        if (diff === 1) go(1); else if (diff === n - 1) go(-1);
+      });
+      ring.appendChild(it); imgs.push(it);
+    });
+    box.classList.add('on'); doc.body.style.overflow = 'hidden';
+    box.querySelector('.lb-p').hidden = box.querySelector('.lb-n').hidden = items.length < 2;
+    layout();
+    box.querySelector('.lb-x').focus();
+  }
+  function close() {
+    if (!box || !box.classList.contains('on')) return;
+    var bx = box; bx.classList.add('off'); setTimeout(function () { bx.classList.remove('on'); bx.classList.remove('off'); }, 300); doc.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  doc.addEventListener('keydown', function (e) {
+    if (!box || !box.classList.contains('on')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'ArrowRight') go(1);
+  });
+  window.addEventListener('hashchange', close);
+
+  doc.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'IMG') return;
+    var fig = t.closest('figure');
+    if (!(fig && fig.parentNode && /Gal$/.test(fig.parentNode.id))) return;
+    e.preventDefault();
+    var figs = Array.prototype.slice.call(fig.parentNode.querySelectorAll('figure img')).filter(function (m) { return m.getAttribute('src'); });
+    var list = figs.map(function (m) {
+      var c = (window.MA_CAT || []).filter(function (x) { return x.img === m.getAttribute('src'); })[0] || {};
+      var pk = m.closest('figure').classList.contains('pick'); return { src: m.getAttribute('src'), nom: m.getAttribute('data-nom') || c.nom || m.alt, legende: c.legende || m.getAttribute('data-leg'), cat: m.getAttribute('data-cat') || (pk ? c.cat : ((c.det && c.det.length) ? 'photos' : '')) };
+    });
+    open(list, figs.indexOf(t));
+  });
+})();
+</script><script>/* Maison Angie : un balayage vers la droite ouvre le menu, vers la gauche le ferme */
+(function () {
+  'use strict';
+  var d = document, x0 = 0, y0 = 0, t0 = 0, ok = false;
+  var st = d.createElement('style'); st.textContent = 'html,body{overscroll-behavior-x:none}'; d.head.appendChild(st);
+  function blocked(t) {
+    return !t || !t.closest || t.closest('input,textarea,select,video,.lb,[role=tab],.tabs,.ar-stage,.rd-hero,.pl-wrap');
+  }
+  d.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) { ok = false; return; }
+    var t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; t0 = Date.now();
+    ok = !blocked(e.target) && !(d.querySelector('.lb.on'));
+  }, { passive: true });
+  d.addEventListener('touchend', function (e) {
+    if (!ok) return; ok = false;
+    var t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0;
+    if (Math.abs(dx) < 70 || Math.abs(dy) > 60 || Math.abs(dx) < Math.abs(dy) * 2 || Date.now() - t0 > 700) return;
+    var drawer = d.getElementById('drawer');
+    if (!drawer) return;
+    if (dx > 0 && drawer.hidden) d.getElementById('menuBtn').click();
+    else if (dx < 0 && !drawer.hidden) d.getElementById('menuClose').click();
+  }, { passive: true });
+})();
+</script><script>(function(){document.querySelectorAll(".sv-video button").forEach(function(b){var v=b.parentNode.querySelector("video");b.addEventListener("click",function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play&&v.play()}b.textContent=v.muted?"Activer le son":"Couper le son";b.setAttribute("aria-pressed",v.muted?"false":"true")})})})()</script>
+<script>(function(){var gals=[document.getElementById('colGal'),document.getElementById('allGal')],snap={},obs={},guard=false;
+function mk(src,alt,leg){var f=document.createElement('figure');f.className='dt';f.style.display='none';var i=document.createElement('img');i.src=src;i.alt=alt;i.setAttribute('data-leg',leg||'');f.appendChild(i);return f}
+function put(g,list){guard=true;g.textContent='';list.forEach(function(f){g.appendChild(f)});if(obs[g.id])obs[g.id].takeRecords();guard=false}
+function show(g){put(g,snap[g.id]||[])}
+function rebuild(g){var figs=[].slice.call(g.querySelectorAll('figure:not(.dt)'));if(!figs.length)return;var pick=figs.some(function(f){return f.classList.contains('pick')});figs.forEach(function(f){var im=f.querySelector('img');f._dt=[];if(pick||!im)return;var VF={'Cupcakes fraise & passion':'../assets/cupcakes.mp4'};if(VF[im.alt]&&!f.querySelector('video')){var w=document.createElement('div');w.style.cssText='position:relative';im.parentNode.insertBefore(w,im);w.appendChild(im);var v=document.createElement('video');v.src=VF[im.alt];v.muted=true;v.defaultMuted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.setAttribute('aria-hidden','true');v.preload='auto';v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;display:block';w.appendChild(v);var pl=v.play&&v.play();if(pl&&pl.catch)pl.catch(function(){})}var c=(window.MA_CAT||[]).filter(function(x){return x.img===im.src})[0];if(c&&c.det)c.det.forEach(function(u,k){f._dt.push(mk(u,c.nom,c.legende))})});snap[g.id]=figs;show(g)}
+gals.forEach(function(g){if(!g)return;obs[g.id]=new MutationObserver(function(){if(!guard)rebuild(g)});obs[g.id].observe(g,{childList:true});rebuild(g)});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.lb-cap a');if(!a||!/#collection\/photos$/.test(a.getAttribute('href')||''))return;e.preventDefault();e.stopImmediatePropagation();var nom=document.querySelector('.lb-cap b').textContent,f=null,g=null;gals.forEach(function(x){if(!x||f)return;(snap[x.id]||[]).forEach(function(q){var im=q.querySelector('img');if(!f&&im&&im.alt===nom){f=q;g=x}})});if(!f||!f._dt||!f._dt.length)return;
+var st=document.querySelector('.lb-stage'),cp=document.querySelector('.lb-cap');st.style.transition=cp.style.transition='opacity .28s ease';st.style.opacity=cp.style.opacity='0';setTimeout(function(){put(g,[f].concat(f._dt));f.querySelector('img').click();setTimeout(function(){show(g);st.style.opacity=cp.style.opacity='1'},80)},300)},true)})();</script><script>(function(){var T=document.getElementById('t'),S=document.getElementById('s'),B=document.getElementById('ccBox'),L=document.querySelector('label[for="s"]'),m=document.querySelector('.sv-min'),l1=document.querySelector('label[for="sv1"]'),w2=document.getElementById('ccW2'),w3=document.getElementById('ccW3');if(!T||!S)return;
+var NORM=S.innerHTML,NL=L.textContent;
+function cc(){var on=T.value==='Cupcakes';B.hidden=!on;if(m)m.style.visibility=on?'hidden':'';
+if(on){if(!S.dataset.cc){S.dataset.cc='1';S.innerHTML='<option>Coffret de 4</option><option>Coffret de 6</option><option>Coffret de 12</option>';L.textContent='Coffret *';l1.textContent='Saveur 1'}
+var n=S.value==='Coffret de 12'?3:2;w2.hidden=false;w3.hidden=n<3;if(n<3)document.getElementById('sv3').value=''}
+else{if(S.dataset.cc){delete S.dataset.cc;S.innerHTML=NORM;L.textContent=NL;l1.textContent='Saveur souhaitée'}w2.hidden=true;w3.hidden=true;document.getElementById('sv2').value='';document.getElementById('sv3').value=''}}
+T.addEventListener('change',cc);S.addEventListener('change',cc);
+var tabs=document.getElementById('colTabs'),I=document.getElementById('ccInfo');
+function ct(){if(!tabs||!I)return;var a=tabs.querySelector('[aria-selected="true"],.on,.act,.active,[aria-current="true"]');I.hidden=!(a&&/cupcake/i.test(a.textContent))}
+if(tabs){tabs.addEventListener('click',function(){setTimeout(ct,30)});new MutationObserver(ct).observe(tabs,{subtree:true,attributes:true,childList:true})}
+window.addEventListener('hashchange',function(){setTimeout(ct,60)});setTimeout(ct,300);cc()})();</script><script>(function(){
+var PH=["* Les tarifs indiqués s’entendent à la part. Le devis vous confirme le prix final de votre gâteau.","* Prix à la part, donnés avec le sourire : la Maison Angie vous confirme le tarif exact de votre gâteau au moment du devis.","* Tarifs à la part, à titre indicatif. Chaque gâteau étant unique, nous en parlons ensemble."];
+var pg=document.querySelector('[data-page="saveurs"]'),note=document.getElementById('prNote');pg.setAttribute('data-pv','4');note.textContent=PH[0];
+pg.setAttribute('data-nv','3');
+var sv1=document.getElementById('sv1');if(sv1){sv1.addEventListener('change',function(){document.getElementById('svOther').hidden=sv1.value!=='Autre'})}
+/* Contact : prénom, nom, e-mail, téléphone obligatoires */
+var f=document.getElementById('contactForm');
+if(f){f.setAttribute('novalidate','');
+ f.addEventListener('submit',function(e){var ok=true;
+  [].forEach.call(f.querySelectorAll('.ferr'),function(x){x.remove()});
+  [].forEach.call(f.querySelectorAll('[data-req]'),function(i){var v=i.value.trim(),m='';
+   if(!v)m='Ce champ est nécessaire pour vous répondre.';
+   else if(i.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v))m='Cette adresse e-mail semble incomplète.';
+   else if(i.type==='tel'&&v.replace(/\D/g,'').length<9)m='Ce numéro semble incomplet.';
+   i.classList.toggle('bad',!!m);
+   if(m){ok=false;var s=document.createElement('span');s.className='ferr';s.setAttribute('role','alert');s.textContent=m;i.parentNode.appendChild(s)}});
+  if(!ok){e.preventDefault();e.stopImmediatePropagation();var b=f.querySelector('.bad');if(b)b.focus()}
+ },true);
+ f.addEventListener('input',function(e){if(e.target.classList.contains('bad')&&e.target.value.trim()){e.target.classList.remove('bad');var s=e.target.parentNode.querySelector('.ferr');if(s)s.remove()}});}
+})()</script><script>(function(){var CATS={'Mariage':'mariage','Layer cake':'layer','Anniversaires':'enfants','Gender reveal':'gender','Cupcakes':'cupcakes'};
+function spin(items){var g=document.createElement('div');g.id='spinGal';g.hidden=true;items.forEach(function(it){var f=document.createElement('figure');f.className='pick';var i=document.createElement('img');i.src=it.src;i.alt=it.nom;i.setAttribute('data-nom',it.nom);i.setAttribute('data-cat',it.cat);i.setAttribute('data-leg','');f.appendChild(i);g.appendChild(f)});document.body.appendChild(g);g.querySelector('img').click();setTimeout(function(){g.remove()},300)}
+function fromHome(){return [].map.call(document.querySelectorAll('.stag .tile'),function(t){var a=t.querySelector('a'),im=t.querySelector('img'),n=t.querySelector('h3').textContent;return{src:im.src,nom:n,cat:CATS[n]||(a.getAttribute('href')||'').split('/').pop()}})}
+function fromCol(){return [].map.call(document.querySelectorAll('#colGal figure.pick'),function(f){var n=f.querySelector('h3').textContent;return{src:f.querySelector('img').src,nom:n,cat:CATS[n]}})}
+var sh=document.getElementById('spinHome'),sc=document.getElementById('spinCol'),box=document.getElementById('colSpin'),tabs=document.getElementById('colTabs');
+if(sh)sh.addEventListener('click',function(){var l=fromHome();if(l.length)spin(l)});
+if(sc)sc.addEventListener('click',function(){var a=tabs&&tabs.querySelector('.tab.on'),tous=a&&/^tous$/i.test(a.textContent.trim());if(tous){var l=fromCol();if(l.length)spin(l)}else{var im=document.querySelector('#colGal figure:not(.dt) img');if(im)im.click()}});
+function sync(){if(!box)return;box.hidden=document.querySelectorAll('#colGal figure:not(.dt)').length<2}
+var cg=document.getElementById('colGal');if(cg){new MutationObserver(sync).observe(cg,{childList:true});sync()}
+window.addEventListener('hashchange',function(){setTimeout(sync,80)});
+document.addEventListener('click',function(e){var it=e.target.closest&&e.target.closest('.lb-it');if(!it||it.getAttribute('aria-hidden')!=='false')return;var a=document.querySelector('.lb-cap a');if(a&&!a.hidden&&/galerie/i.test(a.textContent)){e.preventDefault();a.click();return}
+var im=it.querySelector('img');if(!im||e.target.closest('.lb-cap'))return;e.preventDefault();e.stopPropagation();
+var z=document.createElement('div');z.id='zoomV';z.innerHTML='<img src="'+im.src+'" alt=""><button aria-label="Fermer">&times;</button>';
+(document.querySelector(".lb")||document.body).appendChild(z);requestAnimationFrame(function(){z.classList.add('on')});
+function cz(){z.classList.remove('on');setTimeout(function(){z.remove()},300)}z.addEventListener('click',cz)},true)})();</script><script>(function(){var cap=null;function hook(){var b=document.querySelector('.lb-cap b');if(!b||cap===b)return;cap=b;var c=b.parentNode;new MutationObserver(function(){c.style.transition='none';c.style.opacity='0';void c.offsetWidth;c.style.transition='opacity .7s ease';c.style.opacity='1'}).observe(b,{childList:true,characterData:true,subtree:true})}
+new MutationObserver(hook).observe(document.body,{childList:true});hook()})();</script></body>
 </html>

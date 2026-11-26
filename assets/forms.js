@@ -29,7 +29,7 @@
       var btn = f.querySelector('button[type=submit]'), label = btn.innerHTML;
       var fd = new FormData(f), data = {};
       fd.forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
-      var s = [data.saveur1, data.saveur2, data.saveur3, data.autre_saveur].filter(function (x) { return x && x.indexOf('Autre (') !== 0 && x.indexOf('choisir') < 0; });
+      var s = [data.saveur1, data.saveur2, data.saveur3, data.autre_saveur].filter(function (x) { return x && x !== 'Autre' && x.indexOf('Autre (') !== 0 && x.indexOf('choisir') < 0; });
       if (s.length) data.saveurs = s.join(', ');
       btn.disabled = true; btn.textContent = 'Envoi en cours…'; err.hidden = true;
       fetch(ENDPOINT + path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
